@@ -26,6 +26,8 @@
 
     $serversFile = @file_get_contents("cache/servers.json");
 
+    if (!$serversFile) goto cache;
+
     $servers = json_decode($serversFile, true);
     shuffle($servers);
 
@@ -41,6 +43,7 @@
              </div></div>';
     }
 
+    cache:
     saveCachedFile();
     startQuery();
     ?>
