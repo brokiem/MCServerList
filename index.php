@@ -44,18 +44,19 @@
              </div></div>';
         }
     } else {
-        echo '<div class="shadow p-3 mb-5 card mb-3 card-bg-dark">
-        <div class="card-body card-bg-dark rounded">
-            <div class="text-center">
-                <h1 class="display-3">Loading...</h1>
-                <p class="lead">Please wait..</p><br><br>
-
-                <p class="lead">
-                    <a class="btn btn-secondary" href="index" role="button">Refresh</a>
-                </p>
-            </div>
-        </div>
-    </div>';
+        echo '
+        <div class="text-center">
+            <br><br><br>
+            <h1 class="display-3">Loading...</h1>
+            <p class="lead">Please wait..</p><br><br>
+        </div>';
+        echo '
+        <script type="text/javascript">
+            setTimeout(function(){
+                    window.location.reload(true);
+                }, 2000);
+        </script>
+        ';
     }
     ?>
 </div>
