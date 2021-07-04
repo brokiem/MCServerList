@@ -32,6 +32,7 @@
     $serversFile = @file_get_contents("cache/servers.json");
 
     $servers = json_decode($serversFile, true);
+    shuffle($servers);
 
     foreach ($servers as $id => $data) {
         // Card image
