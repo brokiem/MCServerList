@@ -23,6 +23,7 @@
     <?php
 
     include("src/cachemanager.php");
+    saveCachedFile();
 
     $serversFile = @file_get_contents("cache/servers.json");
 
@@ -56,8 +57,6 @@
         </script>
         ';
     }
-
-    saveCachedFile();
     ?>
 </div>
 </body>
