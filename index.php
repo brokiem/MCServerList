@@ -16,8 +16,15 @@
 </head>
 
 <body>
-<?php header("location: loading");
-include("src/navbar.php"); ?>
+<?php
+include("src/cachemanager.php");
+if (checkLastCached(false)) {
+    header("location: loading");
+}
+
+include("src/navbar.php");
+?>
+
 <div id="home"></div>
 
 <div class="container">

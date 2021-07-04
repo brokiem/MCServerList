@@ -1,7 +1,7 @@
 <?php
 
 /** @noinspection MkdirRaceConditionInspection */
-function checkLastCached(): bool {
+function checkLastCached($putContent = true): bool {
     if (!is_dir("cache")) {
         mkdir("cache");
     }
@@ -9,17 +9,23 @@ function checkLastCached(): bool {
     $file = @file_get_contents("cache/lastExec.json");
 
     if (!$file) {
-        file_put_contents("cache/lastExec.json", json_encode(["lastMysqlCache" => microtime(true)]));
+        if ($putContent) {
+            file_put_contents("cache/lastExec.json", json_encode(["lastMysqlCache" => microtime(true)]));
+        }
         return true;
     }
 
     if (!isset(json_decode($file, true)["lastMysqlCache"])) {
-        file_put_contents("cache/lastExec.json", json_encode(array_merge(json_decode($file, true), ["lastMysqlCache" => microtime(true)])));
+        if ($putContent) {
+            file_put_contents("cache/lastExec.json", json_encode(array_merge(json_decode($file, true), ["lastMysqlCache" => microtime(true)])));
+        }
         return true;
     }
 
     if ((60.0 + (float)json_decode($file, true)["lastMysqlCache"]) < microtime(true)) {
-        file_put_contents("cache/lastExec.json", json_encode(array_merge(json_decode($file, true), ["lastMysqlCache" => microtime(true)])));
+        if ($putContent) {
+            file_put_contents("cache/lastExec.json", json_encode(array_merge(json_decode($file, true), ["lastMysqlCache" => microtime(true)])));
+        }
         return true;
     }
 
