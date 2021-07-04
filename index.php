@@ -22,8 +22,6 @@
 <div class="container">
     <?php
 
-    header("location: query.php");
-
     include("src/cachemanager.php");
 
     saveCachedFile();
