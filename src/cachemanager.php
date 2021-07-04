@@ -61,6 +61,7 @@ function saveCachedFile(bool $force = false): bool {
 
     header("location: query");
     header("location: index");
+    header("Refresh:2;");
     return true;
 }
 
