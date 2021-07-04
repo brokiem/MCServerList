@@ -51,12 +51,10 @@ function saveCachedFile(bool $force = false): bool {
             "port" => $row["port"],
         ];
 
-        while (($rowQ = $query->fetch(PDO::FETCH_ASSOC)) !== false) {
-            $servers[$row["id"]]["status"] = $rowQ["status"];
-            $servers[$row["id"]]["players"] = $rowQ["players"];
-            $servers[$row["id"]]["maxPlayers"] = $rowQ["maxplayers"];
-            $servers[$row["id"]]["version"] = $rowQ["version"];
-        }
+        $servers[$row["id"]]["status"] = $rowQ["status"];
+        $servers[$row["id"]]["players"] = $rowQ["players"];
+        $servers[$row["id"]]["maxPlayers"] = $rowQ["maxplayers"];
+        $servers[$row["id"]]["version"] = $rowQ["version"];
     }
 
     file_put_contents("cache/servers.json", json_encode($servers));
