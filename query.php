@@ -3,4 +3,4 @@
 include("src/cachemanager.php");
 startQuery();
 
-header("location: loading");
+header("location: index");

@@ -5,7 +5,7 @@ include("src/query/query.php");
 $input = $_POST;
 
 $serverName = $input["serverName"];
-$serverCaption = $input["serverCaption"];
+$serverCaption = $input["serverCaption"] ?? "";
 $serverDesc = $input["serverDescription"];
 $address = $input["serverAddress"];
 $port = $input["serverPort"];
