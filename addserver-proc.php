@@ -24,6 +24,32 @@ function validate(string $name, string $caption, string $desc, string $address, 
         return;
     }
 
+    include("src/db/database.php");
+    $list = $connection->query("SELECT * FROM serverlist WHERE address");
+    $list->setFetchMode(PDO::FETCH_ASSOC);
+
+    $return = false;
+
+    while (($addr = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
+        if ($address === $addr) {
+            $listport = $connection->query("SELECT * FROM serverlist WHERE port");
+            $listport->setFetchMode(PDO::FETCH_ASSOC);
+
+            while (($portF = $listport->fetch(PDO::FETCH_ASSOC)) !== false) {
+                if ((int)$port === (int)$portF) {
+                    header("location: failed");
+                    $return = true;
+                    break;
+                }
+            }
+            break;
+        }
+    }
+
+    if ($return) {
+        return;
+    }
+
     $query = query($address, (int)$port, 3);
 
     if (!$query) {
