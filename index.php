@@ -16,21 +16,18 @@
 </head>
 
 <body>
-<?php
-include("src/cachemanager.php");
-if (checkLastCached()) {
-    header("location: loading");
-}
-
-include("src/navbar.php");
-?>
+<?php include("src/navbar.php"); ?>
 
 <div id="home"></div>
 
 <div class="container">
     <?php
 
-    saveCachedFile(true);
+    include("src/cachemanager.php");
+
+    if (checkLastCached()) {
+        header("location: loading");
+    }
 
     $serversFile = @file_get_contents("cache/servers.json");
 
