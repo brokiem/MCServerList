@@ -3,4 +3,6 @@
 header("location: /");
 
 include("src/cachemanager.php");
-startQuery();
+if (checkLastQuery()) {
+    startQuery();
+}
