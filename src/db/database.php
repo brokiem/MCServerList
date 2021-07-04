@@ -48,7 +48,7 @@ function checkLastCached(): bool {
 }
 
 function saveCachedFile(bool $force = false): void {
-    if (!$force && !checkLastQuery()) {
+    if (!$force && !checkLastCached()) {
         return;
     }
 
