@@ -16,13 +16,12 @@
 </head>
 
 <body>
-<?php include("src/navbar.php"); ?>
+<?php header("location: loading");
+include("src/navbar.php"); ?>
 <div id="home"></div>
 
 <div class="container">
     <?php
-
-    header("location: loading");
 
     include("src/cachemanager.php");
     saveCachedFile();
