@@ -22,7 +22,10 @@
 <div class="container">
     <?php
 
-    header("location: query");
+    include("src/cachemanager.php");
+    if (!checkLastCached()) {
+        header("location: query");
+    }
 
     $serversFile = @file_get_contents("cache/servers.json");
 
