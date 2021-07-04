@@ -4,8 +4,14 @@ Options +FollowSymLinks
 Options -MultiViews
 RewriteBase /
 
+RewriteCond %{ENV:REDIRECT_STATUS} !200
+RewriteRule (.*)\.php$ /$1 [L,QSA,NC]
+
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
+
+RewriteCond %{ENV:REDIRECT_STATUS} !200
+RewriteRule (.*)\.html /$1 [L]
 
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [L]
