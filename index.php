@@ -42,20 +42,6 @@
                     <p class="card-text">' . $data["caption"] . '</p>
              </div></div>';
         }
-    } else {
-        echo '
-        <div class="text-center">
-            <br><br><br>
-            <h1 class="display-3">Loading...</h1>
-            <p class="lead">Please wait..</p><br><br>
-        </div>';
-        echo '
-        <script type="text/javascript">
-            setTimeout(function(){
-                window.location.reload(true);
-            }, 2000);
-        </script>
-        ';
     }
     ?>
 </div>
