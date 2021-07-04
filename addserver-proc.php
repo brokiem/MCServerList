@@ -58,22 +58,4 @@ function addServer(string $name, string $caption, string $desc, string $address,
     $prep->bindParam(":description", $desc, PDO::PARAM_STR);
 
     $prep->execute();
-
-    $serversFile = @file_get_contents("cache/servers.json");
-    if (!$serversFile) {
-        $servers = json_decode($serversFile, true);
-
-        $servers[mt_rand(5000, 50000)] = [
-            "title" => $row["title"],
-            "caption" => $row["caption"],
-            "address" => $row["address"],
-            "port" => $row["port"],
-            "status" => "online",
-            "players" => $query["Players"] ?? 0,
-            "maxPlayers" => $query["MaxPlayers"] ?? 0,
-            "version" => $query["Version"] ?? "0.0.0"
-        ];
-
-        file_put_contents("cache/servers.json", json_encode($servers));
-    }
 }
