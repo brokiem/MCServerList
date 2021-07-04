@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS serverlist (
 )");
 $connection->exec("
 CREATE TABLE IF NOT EXISTS querydata (
-    id INT UNSIGNED AUTO_INCREMENT,
+    id INT UNSIGNED NOT NULL,
     status VARCHAR(16) NOT NULL,
     players CHAR(32) NOT NULL,
     maxplayers CHAR(32) NOT NULL,

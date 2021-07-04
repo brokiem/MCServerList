@@ -1,6 +1,7 @@
 body {
     background-color: #1c1c1c !important;
     font-family: 'Work Sans', sans-serif;
+    color: #c9d1d9 !important;
 }
 
 #home {
@@ -20,7 +21,12 @@ li {
 }
 
 .card-bg-dark {
-    background-color: #282828 !important;
+    background-color: #292929 !important;
     color: #c9d1d9 !important;
     border: transparent !important;
+}
+
+.form-control {
+    background-color: #252525 !important;
+    color: #c9d1d9 !important;
 }

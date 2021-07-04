@@ -75,7 +75,7 @@
         echo '<div class="shadow p-3 mb-5 card mb-3 card-bg-dark"> 
                 <div class="card-body card-bg-dark rounded">
                     <h3 class="card-title">' . $serverInfo["title"] . '</h3>
-                    <h5><span class="badge bg-secondary">' . $serverInfo["address"] . ':' . $serverInfo["port"] . '</span> ' . $serverInfo["status"] . ' <span class="badge bg-primary">' . $serverInfo["version"] . '</span> <span class="badge bg-secondary">' . $serverInfo["players"] . '/' . $serverInfo["maxPlayers"] . '</span></h5>
+                    <h5><span class="badge bg-secondary">' . $serverInfo["address"] . ':' . $serverInfo["port"] . '</span> ' . $serverInfo["status"] . ' <span class="badge bg-primary">' . $serverInfo["version"] . '</span> <span class="badge bg-info">' . $serverInfo["players"] . '/' . $serverInfo["maxPlayers"] . '</span></h5>
                     <p class="card-text">' . $serverInfo["caption"] . '</p>
                 </div></div>';
     }
