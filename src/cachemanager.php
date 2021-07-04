@@ -61,11 +61,7 @@ function saveCachedFile(bool $force = false): bool {
 
     file_put_contents("cache/servers.json", json_encode($servers));
 
-    echo '<script>type="text/javascript">
-                setTimeout(function (){
-                    window.location.href="index.php"
-                }, 700)
-            </script>';
+    header("location: index");
     return true;
 }
 
