@@ -43,6 +43,19 @@
                     <p class="card-text">' . $data["caption"] . '</p>
              </div></div>';
         }
+    } else {
+        echo '<div class="shadow p-3 mb-5 card mb-3 card-bg-dark">
+        <div class="card-body card-bg-dark rounded">
+            <div class="text-center">
+                <h1 class="display-3">Loading...</h1>
+                <p class="lead">Please wait..</p><br><br>
+
+                <p class="lead">
+                    <a class="btn btn-secondary" href="index" role="button">Refresh</a>
+                </p>
+            </div>
+        </div>
+    </div>';
     }
     ?>
 </div>
