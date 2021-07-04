@@ -24,7 +24,14 @@
 
     include("src/cachemanager.php");
 
-    saveCachedFile();
+    if (saveCachedFile()) {
+        header("location: query");
+        echo '<script>type="text/javascript">
+                setTimeout(function (){
+                    window.location.href="index.php"
+                }, 500)
+            </script>';
+    }
 
     $serversFile = @file_get_contents("cache/servers.json");
 

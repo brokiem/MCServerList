@@ -26,9 +26,9 @@ function checkLastCached(): bool {
     return false;
 }
 
-function saveCachedFile(bool $force = false): void {
+function saveCachedFile(bool $force = false): bool {
     if (!$force && !checkLastCached()) {
-        return;
+        return false;
     }
 
     include("db/database.php");
@@ -58,8 +58,7 @@ function saveCachedFile(bool $force = false): void {
     }
 
     file_put_contents("cache/servers.json", json_encode($servers));
-
-    header("location: query");
+    return true;
 }
 
 /** @noinspection MkdirRaceConditionInspection */
