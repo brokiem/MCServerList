@@ -73,6 +73,7 @@ function addServer(string $name, string $caption, string $desc, string $address,
             "maxPlayers" => $query["MaxPlayers"] ?? 0,
             "version" => $query["Version"] ?? "0.0.0"
         ];
+
         file_put_contents("cache/servers.json", json_encode($servers));
     }
 }
