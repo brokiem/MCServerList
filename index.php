@@ -25,11 +25,10 @@
     include("src/cachemanager.php");
 
     if (saveCachedFile()) {
-        header("location: query");
         echo '<script>type="text/javascript">
                 setTimeout(function (){
                     window.location.reload(true)
-                }, 1000)
+                }, 700)
             </script>';
     }
 

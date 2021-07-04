@@ -31,6 +31,8 @@ function saveCachedFile(bool $force = false): bool {
         return false;
     }
 
+    header("location: query");
+
     include("db/database.php");
 
     $list = $connection->query("SELECT * FROM serverlist");
