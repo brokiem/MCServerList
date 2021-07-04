@@ -27,14 +27,10 @@
 </head>
 
 <body>
-<?php include("src/navbar.php"); ?>
-<div id="home"></div>
-
 <div class="container">
-    <div class="text-center">
-        <br><br><br>
+    <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
         <h1 class="display-3">Loading...</h1>
-        <p class="lead">Please wait..</p><br><br>
+        <p class="lead">Please wait..</p>
     </div>
 </div>
 </body>
