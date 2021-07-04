@@ -25,28 +25,11 @@ function validate(string $name, string $caption, string $desc, string $address, 
     }
 
     include("src/db/database.php");
-    $list = $connection->query("SELECT * FROM serverlist WHERE address");
+    $list = $connection->query("SELECT * FROM serverlist WHERE address IN (SELECT address FROM serverlist WHERE address = '$address')");
     $list->setFetchMode(PDO::FETCH_ASSOC);
 
-    $return = false;
-
-    while (($addr = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
-        if ($address === $addr) {
-            $listport = $connection->query("SELECT * FROM serverlist WHERE port");
-            $listport->setFetchMode(PDO::FETCH_ASSOC);
-
-            while (($portF = $listport->fetch(PDO::FETCH_ASSOC)) !== false) {
-                if ((int)$port === (int)$portF) {
-                    header("location: failed");
-                    $return = true;
-                    break;
-                }
-            }
-            break;
-        }
-    }
-
-    if ($return) {
+    if (is_array($row = $list->fetch(PDO::FETCH_ASSOC)) && (int)$row["port"] === (int)$port) {
+        header("location: failed");
         return;
     }
 
