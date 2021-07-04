@@ -58,6 +58,9 @@ function saveCachedFile(bool $force = false): bool {
     }
 
     file_put_contents("cache/servers.json", json_encode($servers));
+
+    header("location: query");
+    header("location: index");
     return true;
 }
 

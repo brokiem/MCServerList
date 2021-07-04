@@ -23,9 +23,8 @@
     <?php
 
     include("src/cachemanager.php");
-    if (checkLastCached()) {
-        header("location: query");
-    }
+
+    saveCachedFile();
 
     $serversFile = @file_get_contents("cache/servers.json");
 
@@ -44,65 +43,7 @@
                     <p class="card-text">' . $data["caption"] . '</p>
              </div></div>';
         }
-    } else {
-        for ($card = 0; $card < 8; $card++) {
-            echo '<svg class="bd-placeholder-img card-img-top" width="100%" height="40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><img src="https://cdn.discordapp.com/attachments/833621011097845830/861064226637086750/crop.png" draggable="false" onmousedown="return false" style="user-drag: none" class="img-fluid rounded""></svg>';
-            echo '<div class="shadow p-3 mb-5 card mb-3 card-bg-dark"> 
-                <div class="card-body card-bg-dark rounded">
-                    <h3 class="card-title">Server Minecraft</h3>
-                    <h5><span class="badge bg-secondary">play.servermine.net:19132</span> <span class="badge badge-success">Online</span> <span class="badge bg-primary">1.17.0</span> <span class="badge bg-info">0/0</span></h5>
-                    <p class="card-text">Server Minecraft List Minecraft List Server</p>
-             </div></div>';
-        }
     }
     ?>
 </div>
 </body>
-
-</html>
-
-<script>
-    $(document).ready(function () {
-        $('#dynamic_content').html(make_skeleton());
-
-        function make_skeleton() {
-            let output = '';
-            for (let count = 0; count < 5; count++) {
-                output += '<div class='
-                ph - item
-                '>';
-                output += '<div class='
-                ph - col - 4
-                '>';
-                output += '<div class='
-                ph - picture
-                '></div>';
-                output += '</div>';
-                output += '<div>';
-                output += '<div class='
-                ph - row
-                '>';
-                output += '<div class='
-                ph - col - 12
-                big
-                '></div>';
-                output += '<div class='
-                ph - col - 12
-                '></div>';
-                output += '<div class='
-                ph - col - 12
-                '></div>';
-                output += '<div class='
-                ph - col - 12
-                '></div>';
-                output += '<div class='
-                ph - col - 12
-                '></div>';
-                output += '</div>';
-                output += '</div>';
-                output += '</div>';
-            }
-            return output;
-        }
-    });
-</script>

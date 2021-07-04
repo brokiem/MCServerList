@@ -1,17 +1,6 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=index">
-    <script type="text/javascript">
-        window.location.href = "index"
-    </script>
-    <title>MC Servers</title>
+include("src/cachemanager.php");
+startQuery();
 
-    <?php
-    include("src/cachemanager.php");
-    saveCachedFile();
-    startQuery();
-    ?>
-</head>
+header("location: index");
