@@ -1,6 +1,6 @@
 <?php
 
-include("minecraft/query.php");
+include("src/query/query.php");
 
 $input = $_POST;
 
@@ -25,7 +25,7 @@ function validate(string $name, string $caption, string $desc, string $address, 
 }
 
 function addServer(string $name, string $caption, string $desc, string $address, $port) {
-    include("db/database.php");
+    include("src/db/database.php");
     $prep = $connection->prepare(
         "INSERT INTO serverlist (title, address, port, caption, description) 
         VALUES (:title, :address, :port, :caption, :description)

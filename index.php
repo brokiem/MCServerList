@@ -23,7 +23,7 @@
     <?php
 
     include("src/db/database.php");
-    include("src/minecraft/query.php");
+    include("src/query/query.php");
 
     startQuery();
 

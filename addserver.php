@@ -18,7 +18,7 @@
 <div id="home"></div>
 
 <div class="container">
-    <form id="addserver-form" method="post" action="src/addserver.php">
+    <form id="addserver-form" method="post" action="addserver-proc.php">
         <div class="mb-4">
             <label for="serverName" class="form-label">Server name</label>
             <input type="text" class="form-control" name="serverName" minlength="3" required>
