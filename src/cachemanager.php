@@ -31,8 +31,6 @@ function saveCachedFile(bool $force = false): void {
         return;
     }
 
-    header("location: query.php");
-
     include("db/database.php");
 
     $list = $connection->query("SELECT * FROM serverlist");
@@ -60,6 +58,8 @@ function saveCachedFile(bool $force = false): void {
     }
 
     file_put_contents("cache/servers.json", json_encode($servers));
+
+    header("location: query");
 }
 
 /** @noinspection MkdirRaceConditionInspection */
