@@ -21,12 +21,12 @@
     <form id="addserver-form" method="post" action="addserver-proc.php">
         <div class="mb-4">
             <label for="serverName" class="form-label">Server name</label>
-            <input type="text" class="form-control" name="serverName" minlength="3" required>
+            <input type="text" class="form-control" name="serverName" minlength="3" maxlength="32" required>
         </div>
 
         <div class="mb-4">
             <label for="serverCaption" class="form-label">Server caption</label>
-            <input type="text" class="form-control" name="serverCaption" minlength="10" required>
+            <input type="text" class="form-control" name="serverCaption" minlength="10" maxlength="128" required>
         </div>
 
         <div class="mb-3">
@@ -36,9 +36,11 @@
         <br>
         <label for="serverInfo" class="form-label">Server address and port</label>
         <div class="input-group mb-4">
-            <input type="text" class="form-control" placeholder="Address" name="serverAddress" minlength="3" required>
+            <input type="text" class="form-control" placeholder="Address" name="serverAddress" minlength="3"
+                   maxlength="64" required>
             <span class="input-group-text">::</span>
-            <input type="number" class="form-control" placeholder="Port" name="serverPort" value="19132" min="1"
+            <input type="number" class="form-control" placeholder="Port" name="serverPort" value="19132" maxlength="8"
+                   min="1"
                    max="65535" minlength="1" data-bind="value:replyNumber" required>
         </div>
 

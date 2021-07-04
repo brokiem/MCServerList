@@ -13,6 +13,31 @@ $port = $input["serverPort"];
 validate($serverName, $serverCaption, $serverDesc, $address, $port);
 
 function validate(string $name, string $caption, string $desc, string $address, $port) {
+    if (strlen($name) >= 32) {
+        header("location: failed.html");
+        return;
+    }
+
+    if (strlen($caption) >= 128) {
+        header("location: failed.html");
+        return;
+    }
+
+    if (strlen($desc) >= 2048) {
+        header("location: failed.html");
+        return;
+    }
+
+    if (strlen($address) >= 64) {
+        header("location: failed.html");
+        return;
+    }
+
+    if (strlen($port) >= 8) {
+        header("location: failed.html");
+        return;
+    }
+
     $query = query($address, (int)$port, 3);
 
     if (!$query) {
