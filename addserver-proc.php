@@ -31,11 +31,11 @@ function validate(string $name, string $caption, string $desc, string $address, 
         return;
     }
 
-    addServer($name, $caption, $desc, $address, (int)$port);
+    addServer($name, $caption, $desc, $address, (int)$port, $query);
     header("location: success");
 }
 
-function addServer(string $name, string $caption, string $desc, string $address, $port) {
+function addServer(string $name, string $caption, string $desc, string $address, $port, $query) {
     include("src/db/database.php");
     $prep = $connection->prepare(
         "INSERT INTO serverlist (title, address, port, caption, description) 
@@ -49,4 +49,19 @@ function addServer(string $name, string $caption, string $desc, string $address,
     $prep->bindParam(":description", $desc, PDO::PARAM_STR);
 
     $prep->execute();
+
+    $serversFile = @file_get_contents("cache/servers.json");
+    $servers = json_decode($serversFile, true);
+
+    $servers[mt_rand(5000, 50000)] = [
+        "title" => $row["title"],
+        "caption" => $row["caption"],
+        "address" => $row["address"],
+        "port" => $row["port"],
+        "status" => "online",
+        "players" => $query["Players"] ?? 0,
+        "maxPlayers" => $query["MaxPlayers"] ?? 0,
+        "version" => $query["Version"] ?? "0.0.0"
+    ];
+    file_put_contents("cache/servers.json", json_encode($servers));
 }
