@@ -32,7 +32,6 @@ function saveCachedFile(bool $force = false): bool {
     }
 
     header("location: query");
-    header("location: index");
 
     include("db/database.php");
 
