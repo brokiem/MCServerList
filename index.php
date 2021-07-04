@@ -34,7 +34,7 @@
     foreach ($servers as $id => $data) {
         // Card image
         $status = $data["status"] === "offline" ? '<span class="badge badge-danger">Offline</span>' : '<span class="badge badge-success">Online</span>';
-        echo '<svg class="bd-placeholder-img card-img-top" width="100%" height="40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><img src="https://cdn.discordapp.com/attachments/833621011097845830/861064226637086750/crop.png" class="img-fluid rounded""></svg>';
+        echo '<svg class="bd-placeholder-img card-img-top" width="100%" height="40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><img src="https://cdn.discordapp.com/attachments/833621011097845830/861064226637086750/crop.png" draggable="false" onmousedown="return false" style="user-drag: none" class="img-fluid rounded""></svg>';
         echo '<div class="shadow p-3 mb-5 card mb-3 card-bg-dark"> 
                 <div class="card-body card-bg-dark rounded">
                     <h3 class="card-title">' . $data["title"] . '</h3>
