@@ -1,6 +1,11 @@
 <?php
 
-$connection = new PDO("mysql:host=127.0.0.1; dbname=serverlist", "root", "");
+$address = getenv("mysql-address");
+$db = getenv("mysql-db");
+$username = getenv("mysql-user");
+$password = getenv("mysql-pass");
+
+$connection = new PDO("mysql:host=$address; dbname=$db", $username, $password);
 $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $connection->exec("
