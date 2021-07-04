@@ -61,7 +61,7 @@ function saveCachedFile(bool $force = false): bool {
 
     file_put_contents("cache/servers.json", json_encode($servers));
 
-    header("location: index");
+    header("Refresh:1");
     return true;
 }
 
