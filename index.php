@@ -22,6 +22,8 @@
 <div class="container">
     <?php
 
+    header("location: loading");
+
     include("src/cachemanager.php");
     saveCachedFile();
 

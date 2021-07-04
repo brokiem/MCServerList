@@ -19,6 +19,7 @@
 </head>
 
 <body>
+<?php include("src/navbar.php"); ?>
 <div id="home"></div>
 
 <script type="text/javascript">
