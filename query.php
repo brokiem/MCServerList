@@ -1,8 +1,6 @@
 <?php
 
 include("src/cachemanager.php");
-if (checkLastQuery()) {
-    startQuery();
-}
+startQuery();
 
 header("location: /");
