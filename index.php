@@ -22,6 +22,8 @@
 <div class="container">
     <?php
 
+    header("location: query.php");
+
     include("src/cachemanager.php");
 
     saveCachedFile();
@@ -42,8 +44,6 @@
                     <p class="card-text">' . $data["caption"] . '</p>
              </div></div>';
     }
-
-    startQuery();
     ?>
 </div>
 </body>
