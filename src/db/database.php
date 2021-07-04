@@ -28,3 +28,45 @@ CREATE TABLE IF NOT EXISTS querydata (
     hostname VARCHAR(512) NOT NULL,
     PRIMARY KEY (id)
 )");
+
+/** @noinspection MkdirRaceConditionInspection */
+function checkLastCached(): bool {
+    if (!is_dir("cache")) {
+        mkdir("cache");
+    }
+
+    $file = @file_get_contents("cache/lastExec.json");
+
+    if (!$file) {
+        file_put_contents("cache/lastExec.json", json_encode(["lastMysqlCache" => microtime(true)]));
+    } else if ((120.0 + (float)json_decode($file, true)["lastQuery"]) < microtime(true)) {
+        file_put_contents("cache/lastExec.json", json_encode(["lastMysqlCache" => microtime(true)]));
+        return true;
+    }
+
+    return false;
+}
+
+function saveCachedFile(bool $force = false): void {
+    if (!$force && !checkLastQuery()) {
+        return;
+    }
+
+    include("database.php");
+
+    $list = $connection->query("SELECT * FROM serverlist");
+    $list->setFetchMode(PDO::FETCH_ASSOC);
+
+    $servers = [];
+
+    while (($row = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
+        $servers[$row["id"]] = [
+            "title" => $row["title"],
+            "caption" => $row["caption"],
+            "address" => $row["address"],
+            "port" => $row["port"],
+        ];
+    }
+
+    file_put_contents("cache/servers.json", json_encode($servers));
+}

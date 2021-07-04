@@ -6,12 +6,12 @@ function checkLastQuery(): bool {
         mkdir("cache");
     }
 
-    $file = @file_get_contents("cache/lastQuery.json");
+    $file = @file_get_contents("cache/lastExec.json");
 
     if (!$file) {
-        file_put_contents("cache/lastQuery.json", json_encode(["lastQuery" => microtime(true)]));
+        file_put_contents("cache/lastExec.json", json_encode(["lastQuery" => microtime(true)]));
     } else if ((120.0 + (float)json_decode($file, true)["lastQuery"]) < microtime(true)) {
-        file_put_contents("cache/lastQuery.json", json_encode(["lastQuery" => microtime(true)]));
+        file_put_contents("cache/lastExec.json", json_encode(["lastQuery" => microtime(true)]));
         return true;
     }
 

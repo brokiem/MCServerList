@@ -19,9 +19,7 @@ function validate(string $name, string $caption, string $desc, string $address, 
     $address = htmlspecialchars($address, ENT_COMPAT, 'ISO-8859-1');
     $port = htmlspecialchars($port, ENT_COMPAT, 'ISO-8859-1');
 
-    if (strlen($name) >= 32 or strlen($caption) >= 128 or strlen($desc) >= 2048 or
-        strlen($address) >= 64 or strlen($port) >= 8
-    ) {
+    if (strlen($name) >= 32 or strlen($caption) >= 128 or strlen($desc) >= 2048 or strlen($address) >= 64 or strlen($port) >= 8) {
         header("location: failed.html");
         return;
     }
