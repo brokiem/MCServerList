@@ -1,6 +1,6 @@
 <?php
 
-header("location: index");
-
 include("src/cachemanager.php");
 startQuery();
+
+header("location: index");

@@ -24,13 +24,7 @@
 
     include("src/cachemanager.php");
 
-    if (saveCachedFile()) {
-        echo '<script>type="text/javascript">
-                setTimeout(function (){
-                    window.location.reload(true)
-                }, 700)
-            </script>';
-    }
+    saveCachedFile();
 
     $serversFile = @file_get_contents("cache/servers.json");
 
