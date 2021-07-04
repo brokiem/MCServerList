@@ -7,15 +7,15 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand" href="index.php">MC Servers Beta</a>
+    <a class="navbar-brand" href="index">MC Servers Beta</a>
 
     <div class="container collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="featured.php">Featured Servers</a>
+                <a class="nav-link" href="featured">Featured Servers</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="addserver.php">Add Server</a>
+                <a class="nav-link" href="addserver">Add Server</a>
             </li>
         </ul>
     </div>

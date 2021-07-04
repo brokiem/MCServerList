@@ -20,19 +20,19 @@ function validate(string $name, string $caption, string $desc, string $address, 
     $port = htmlspecialchars($port, ENT_COMPAT, 'ISO-8859-1');
 
     if (strlen($name) >= 32 or strlen($caption) >= 128 or strlen($desc) >= 2048 or strlen($address) >= 64 or strlen($port) >= 8) {
-        header("location: failed.html");
+        header("location: failed");
         return;
     }
 
     $query = query($address, (int)$port, 3);
 
     if (!$query) {
-        header("location: failed.html");
+        header("location: failed");
         return;
     }
 
     addServer($name, $caption, $desc, $address, (int)$port);
-    header("location: success.html");
+    header("location: success");
 }
 
 function addServer(string $name, string $caption, string $desc, string $address, $port) {
