@@ -39,7 +39,7 @@ function checkLastCached(): bool {
 
     if (!$file) {
         file_put_contents("cache/lastExec.json", json_encode(["lastMysqlCache" => microtime(true)]));
-    } else if ((120.0 + (float)json_decode($file, true)["lastQuery"]) < microtime(true)) {
+    } else if ((340.0 + (float)json_decode($file, true)["lastQuery"]) < microtime(true)) {
         file_put_contents("cache/lastExec.json", json_encode(["lastMysqlCache" => microtime(true)]));
         return true;
     }
