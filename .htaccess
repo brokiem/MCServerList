@@ -1,14 +1,11 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 Options +FollowSymLinks
+Options -MultiViews
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
-RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
-RewriteRule ^ /%1 [NC,L,R]
-
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^ %{REQUEST_URI}.html [NC,L]
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
 </IfModule>
