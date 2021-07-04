@@ -18,7 +18,7 @@
 <body>
 <?php
 include("src/cachemanager.php");
-if (checkLastCached(false)) {
+if (checkLastCached()) {
     header("location: loading");
 }
 
@@ -30,7 +30,7 @@ include("src/navbar.php");
 <div class="container">
     <?php
 
-    saveCachedFile();
+    saveCachedFile(true);
 
     $serversFile = @file_get_contents("cache/servers.json");
 
