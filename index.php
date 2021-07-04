@@ -18,7 +18,7 @@
 <body>
 <?php
 include("src/cachemanager.php");
-if (checkLastCached(false)) {
+if (!checkLastCached()) {
     header("location: loading");
 }
 

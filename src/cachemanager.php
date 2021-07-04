@@ -22,7 +22,7 @@ function checkLastCached($putContent = true): bool {
         return true;
     }
 
-    if ((60.0 + (float)json_decode($file, true)["lastMysqlCache"]) < microtime(true)) {
+    if ((120.0 + (float)json_decode($file, true)["lastMysqlCache"]) < microtime(true)) {
         if ($putContent) {
             file_put_contents("cache/lastExec.json", json_encode(array_merge(json_decode($file, true), ["lastMysqlCache" => microtime(true)])));
         }
@@ -70,7 +70,7 @@ function saveCachedFile(bool $force = false): bool {
 }
 
 /** @noinspection MkdirRaceConditionInspection */
-function checkLastQuery(): bool {
+function checkLastQuery($putContent = true): bool {
     if (!is_dir("cache")) {
         mkdir("cache");
     }
