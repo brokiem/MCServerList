@@ -33,7 +33,7 @@ function validate(string $name, string $caption, string $desc, string $address, 
         return;
     }
 
-    addServer($name, $caption, $desc, $address, $port);
+    addServer($name, $caption, $desc, $address, (int)$port);
     header("location: success.html");
 }
 
@@ -44,11 +44,11 @@ function addServer(string $name, string $caption, string $desc, string $address,
         VALUES (:title, :address, :port, :caption, :description)
     ");
 
-    $prep->bindParam(":title", $name);
-    $prep->bindParam(":address", $address);
-    $prep->bindParam(":port", $port);
-    $prep->bindParam(":caption", $caption);
-    $prep->bindParam(":description", $desc);
+    $prep->bindParam(":title", $name, PDO::PARAM_STR);
+    $prep->bindParam(":address", $address, PDO::PARAM_STR);
+    $prep->bindParam(":port", $port, PDO::PARAM_INT);
+    $prep->bindParam(":caption", $caption, PDO::PARAM_STR);
+    $prep->bindParam(":description", $desc, PDO::PARAM_STR);
 
     $prep->execute();
 }
