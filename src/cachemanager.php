@@ -18,7 +18,7 @@ function checkLastCached(): bool {
         return true;
     }
 
-    if ((200.0 + (float)json_decode($file, true)["lastMysqlCache"]) < microtime(true)) {
+    if ((60.0 + (float)json_decode($file, true)["lastMysqlCache"]) < microtime(true)) {
         file_put_contents("cache/lastExec.json", json_encode(array_merge(json_decode($file, true), ["lastMysqlCache" => microtime(true)])));
         return true;
     }
@@ -32,6 +32,7 @@ function saveCachedFile(bool $force = false): bool {
     }
 
     header("location: query");
+    header("location: index");
 
     include("db/database.php");
 
