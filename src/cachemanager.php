@@ -38,12 +38,12 @@ function saveCachedFile(bool $force = false): bool {
     $list = $connection->query("SELECT * FROM serverlist");
     $list->setFetchMode(PDO::FETCH_ASSOC);
 
-    $query = $connection->query("SELECT * FROM querydata");
-    $query->setFetchMode(PDO::FETCH_ASSOC);
-
     $servers = [];
 
     while (($row = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
+        $query = $connection->query("SELECT * FROM querydata");
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+
         $servers[$row["id"]] = [
             "title" => $row["title"],
             "caption" => $row["caption"],
@@ -51,10 +51,12 @@ function saveCachedFile(bool $force = false): bool {
             "port" => $row["port"],
         ];
 
-        $servers[$row["id"]]["status"] = $rowQ["status"];
-        $servers[$row["id"]]["players"] = $rowQ["players"];
-        $servers[$row["id"]]["maxPlayers"] = $rowQ["maxplayers"];
-        $servers[$row["id"]]["version"] = $rowQ["version"];
+        while (($rowQ = $query->fetch(PDO::FETCH_ASSOC)) !== false) {
+            $servers[$row["id"]]["status"] = $rowQ["status"];
+            $servers[$row["id"]]["players"] = $rowQ["players"];
+            $servers[$row["id"]]["maxPlayers"] = $rowQ["maxplayers"];
+            $servers[$row["id"]]["version"] = $rowQ["version"];
+        }
     }
 
     file_put_contents("cache/servers.json", json_encode($servers));
