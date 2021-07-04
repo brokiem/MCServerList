@@ -28,8 +28,8 @@
         header("location: query");
         echo '<script>type="text/javascript">
                 setTimeout(function (){
-                    window.location.href="index.php"
-                }, 500)
+                    window.location.reload(true)
+                }, 1000)
             </script>';
     }
 
