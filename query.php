@@ -11,6 +11,7 @@
 
     <?php
     include("src/cachemanager.php");
+    saveCachedFile();
     startQuery();
     ?>
 </head>

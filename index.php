@@ -22,8 +22,7 @@
 <div class="container">
     <?php
 
-    include("src/cachemanager.php");
-    saveCachedFile();
+    header("location: query");
 
     $serversFile = @file_get_contents("cache/servers.json");
 
@@ -52,37 +51,55 @@
                     <p class="card-text">Server Minecraft List Minecraft List Server</p>
              </div></div>';
         }
-
-        echo "<script>
-  $(document).ready(function(){
-
-    $('#dynamic_content').html(make_skeleton());
-
-    function make_skeleton()
-    {
-      var output = '';
-      for(var count = 0; count < 5; count++)
-      {
-        output += '<div class='ph-item'>';
-        output += '<div class='ph-col-4'>';
-        output += '<div class='ph-picture'></div>';
-        output += '</div>';
-        output += '<div>';
-        output += '<div class='ph-row'>';
-        output += '<div class='ph-col-12 big'></div>';
-        output += '<div class='ph-col-12'></div>';
-        output += '<div class='ph-col-12'></div>';
-        output += '<div class='ph-col-12'></div>';
-        output += '<div class='ph-col-12'></div>';
-        output += '</div>';
-        output += '</div>';
-        output += '</div>';
-      }
-      return output;
-    }
-  });
-</script>";
     }
     ?>
 </div>
 </body>
+
+</html>
+
+<script>
+    $(document).ready(function () {
+        $('#dynamic_content').html(make_skeleton());
+
+        function make_skeleton() {
+            let output = '';
+            for (let count = 0; count < 5; count++) {
+                output += '<div class='
+                ph - item
+                '>';
+                output += '<div class='
+                ph - col - 4
+                '>';
+                output += '<div class='
+                ph - picture
+                '></div>';
+                output += '</div>';
+                output += '<div>';
+                output += '<div class='
+                ph - row
+                '>';
+                output += '<div class='
+                ph - col - 12
+                big
+                '></div>';
+                output += '<div class='
+                ph - col - 12
+                '></div>';
+                output += '<div class='
+                ph - col - 12
+                '></div>';
+                output += '<div class='
+                ph - col - 12
+                '></div>';
+                output += '<div class='
+                ph - col - 12
+                '></div>';
+                output += '</div>';
+                output += '</div>';
+                output += '</div>';
+            }
+            return output;
+        }
+    });
+</script>
