@@ -32,6 +32,7 @@ function saveCachedFile(bool $force = false): bool {
     }
 
     header("location: query");
+    header("location: loading");
 
     include("db/database.php");
 
@@ -61,7 +62,7 @@ function saveCachedFile(bool $force = false): bool {
 
     file_put_contents("cache/servers.json", json_encode($servers));
 
-    header("location: index");
+    header("location: loading");
     return true;
 }
 
