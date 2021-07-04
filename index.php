@@ -24,9 +24,6 @@
 
     include("src/cachemanager.php");
 
-    saveCachedFile();
-    startQuery();
-
     $serversFile = @file_get_contents("cache/servers.json");
 
     $servers = json_decode($serversFile, true);
@@ -43,6 +40,9 @@
                     <p class="card-text">' . $data["caption"] . '</p>
              </div></div>';
     }
+
+    saveCachedFile();
+    startQuery();
     ?>
 </div>
 </body>

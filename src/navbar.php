@@ -7,7 +7,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand" href="index">MC Servers Beta</a>
+    <a class="navbar-brand" href="index"><b>MC Servers Beta</b></a>
 
     <div class="container collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
