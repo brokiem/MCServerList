@@ -1,6 +1,5 @@
 body {
     background-color: #1c1c1c !important;
-    font-family: 'Quicksand', sans-serif !important;
     color: #c9d1d9 !important;
 }
 
@@ -29,4 +28,8 @@ li {
 .form-control {
     background-color: #252525 !important;
     color: #c9d1d9 !important;
+}
+
+p, h1, h2, h3, a {
+    font-family: Quicksand, sans-serif !important;
 }
