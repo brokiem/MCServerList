@@ -7,6 +7,9 @@
     <div class="container collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
+                <a class="nav-link" href="index">Home</a>
+            </li>
+            <li class="nav-item active">
                 <a class="nav-link" href="featured">Featured Servers</a>
             </li>
             <li class="nav-item active">
