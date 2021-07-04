@@ -26,7 +26,9 @@
     include("src/cachemanager.php");
 
     if (checkLastCached()) {
+        saveCachedFile(true);
         header("location: loading");
+        return;
     }
 
     $serversFile = @file_get_contents("cache/servers.json");
