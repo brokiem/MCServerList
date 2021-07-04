@@ -24,8 +24,6 @@
 
     include("src/cachemanager.php");
 
-    saveCachedFile();
-
     $serversFile = @file_get_contents("cache/servers.json");
 
     if (is_string($serversFile)) {
@@ -53,11 +51,13 @@
         echo '
         <script type="text/javascript">
             setTimeout(function(){
-                    window.location.reload(true);
-                }, 2000);
+                window.location.reload(true);
+            }, 2000);
         </script>
         ';
     }
+
+    saveCachedFile();
     ?>
 </div>
 </body>
