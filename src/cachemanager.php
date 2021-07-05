@@ -61,7 +61,6 @@ function saveCachedFile(bool $force = false): bool {
                 $servers[$id]["players"] = $rowQ["players"];
                 $servers[$id]["maxPlayers"] = $rowQ["maxplayers"];
                 $servers[$id]["version"] = $rowQ["version"];
-                break;
             }
         }
     }
@@ -114,7 +113,7 @@ function startQuery(bool $force = false) {
         $address = $row["address"];
         $port = $row["port"];
 
-        $query = query($address, $port);
+        $query = query($address, $port, 2);
 
         if ($query !== null) {
             $queryRes[$id] = [
