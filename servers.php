@@ -48,7 +48,7 @@
                             $('#servers').append(data);
                             setTimeout(function () {
                                 $(".showServers").prop("disabled", false).html($(".showServers").attr("original-text"));
-                            }, 2000);
+                            }, 4000);
                         }
                     }
                 });
