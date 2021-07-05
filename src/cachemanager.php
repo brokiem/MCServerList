@@ -57,10 +57,10 @@ function saveCachedFile(bool $force = false): bool {
 
         while (($rowQ = $query->fetch(PDO::FETCH_ASSOC)) !== false) {
             if ($row["id"] === $rowQ["id"]) {
-                $servers[$id]["status"] = $rowQ["status"];
-                $servers[$id]["players"] = $rowQ["players"];
-                $servers[$id]["maxPlayers"] = $rowQ["maxplayers"];
-                $servers[$id]["version"] = $rowQ["version"];
+                $servers[$row["id"]]["status"] = $rowQ["status"];
+                $servers[$row["id"]]["players"] = $rowQ["players"];
+                $servers[$row["id"]]["maxPlayers"] = $rowQ["maxplayers"];
+                $servers[$row["id"]]["version"] = $rowQ["version"];
             }
         }
     }
