@@ -67,11 +67,10 @@ function saveCachedFile(bool $force = false): bool {
 
         foreach ($queryData as $id => $data) {
             if ($id === $row["id"]) {
-                $servers[$row["id"]]["status"] = $data["status"];
-                $servers[$row["id"]]["players"] = $data["players"];
-                $servers[$row["id"]]["maxPlayers"] = $data["maxplayers"];
-                $servers[$row["id"]]["version"] = $data["version"];
-                break;
+                $servers[$id]["status"] = $data["status"];
+                $servers[$id]["players"] = $data["players"];
+                $servers[$id]["maxPlayers"] = $data["maxplayers"];
+                $servers[$id]["version"] = $data["version"];
             }
         }
     }
@@ -117,6 +116,18 @@ function startQuery(bool $force = false) {
     $list = $connection->query("SELECT * FROM serverlist");
     $list->setFetchMode(PDO::FETCH_ASSOC);
 
+    $q = $connection->query("SELECT * FROM querydata");
+    $q->setFetchMode(PDO::FETCH_ASSOC);
+
+    while (($rowQ = $query->fetch(PDO::FETCH_ASSOC)) !== false) {
+        $queryData[$rowQ["id"]] = [
+            "status" => $rowQ["status"],
+            "players" => $rowQ["players"],
+            "maxplayers" => $rowQ["maxplayers"],
+            "version", $rowQ["version"]
+        ];
+    }
+
     $queryRes = [];
 
     while (($row = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
@@ -135,17 +146,27 @@ function startQuery(bool $force = false) {
                 "version" => $query["Version"],
                 "hostname" => $query["HostName"]
             ];
+        } else {
+            foreach ($queryData as $id => $data) {
+                if ($id === $row["id"]) {
+                    $queryRes[$id] = [
+                        "id" => $id,
+                        "status" => "offline",
+                        "players" => "0",
+                        "maxplayers" => $data["maxplayers"],
+                        "version" => $data["version"],
+                        "hostname" => "null"
+                    ];
+                    break;
+                }
+            }
         }
     }
 
     foreach ($queryRes as $array) {
-        $status = $array["status"] ?? "offline";
-
-        if ($status !== "offline") {
-            $connection->prepare("INSERT INTO querydata (id, status, players, maxplayers, version, hostname) 
-                    VALUES (:id, :status, :players, :maxplayers, :version, :hostname)
-                    ON DUPLICATE KEY UPDATE id=VALUES(id), status=VALUES(status), players=VALUES(players), version=VALUES(version), hostname=VALUES(hostname)"
-            )->execute($array);
-        }
+        $connection->prepare("INSERT INTO querydata (id, status, players, maxplayers, version, hostname) 
+                VALUES (:id, :status, :players, :maxplayers, :version, :hostname)
+                ON DUPLICATE KEY UPDATE id=VALUES(id), status=VALUES(status), players=VALUES(players), version=VALUES(version), hostname=VALUES(hostname)"
+        )->execute($array);
     }
 }
