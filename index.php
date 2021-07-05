@@ -17,7 +17,7 @@
 
     <script>
         setTimeout(function () {
-            window.location.href = "servers.php";
+            window.location.href = "servers";
         }, 800);
     </script>
 </head>
