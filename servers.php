@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>MC Servers</title>
     <meta charset="utf-8">
+    <title>MC Servers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
@@ -26,14 +26,14 @@
                 'total': 5
             },
             success: function (data) {
-                if (false !== data) {
-                    $('#servers').append(data);
-                }
+                $('#servers').append(data);
+                $('#loading').hide();
             }
         });
 
         window.onscroll = function () {
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                $('#loading').show();
                 $.ajax({
                     type: 'GET',
                     url: 'src/servers.php',
@@ -42,9 +42,8 @@
                         'total': 5
                     },
                     success: function (data) {
-                        if (false !== data) {
-                            $('#servers').append(data);
-                        }
+                        $('#server').append(data);
+                        $('#loading').hide();
                     }
                 });
             }
@@ -67,6 +66,12 @@
     startQuery();
     saveCachedFile();
     ?>
+
+    <div id="loading">
+        <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+            <div class="spinner-border" role="status"></div>
+        </div>
+    </div>
 </div>
 
 <footer class="card-bg-dark text-center text-lg-start">

@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>MC Servers</title>
     <meta charset="utf-8">
+    <title>MC Servers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
