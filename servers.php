@@ -48,7 +48,7 @@
                             $('#servers').append(data);
                             setTimeout(function () {
                                 $(".showServers").prop("disabled", false).html($(".showServers").attr("original-text"));
-                            }, 4000);
+                            }, 2000);
                         }
                     }
                 });
@@ -57,7 +57,7 @@
 
         setTimeout(function () {
             document.getElementById("showServersBtn").style.display = "block";
-        }, 3000);
+        }, 5000);
     </script>
 </head>
 
