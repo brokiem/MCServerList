@@ -2,8 +2,12 @@
 
 include("db/database.php");
 
-$offset = $_GET['offset'] ?? 5;
-$total = $_GET['total'] ?? 10;
+$offset = $_GET['offset'] ?? 0;
+$total = $_GET['total'] ?? 0;
+
+if ($total === 0) {
+    return;
+}
 
 $list = $connection->query("SELECT * FROM serverlist LIMIT $offset, $total");
 $list->setFetchMode(PDO::FETCH_ASSOC);
