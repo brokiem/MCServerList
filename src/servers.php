@@ -2,16 +2,22 @@
 
 include("db/database.php");
 
-$last_offset = "null";
+$last_offsetFile = @file_get_contents("cache/lastOffset.json");
+
+if (!$last_offsetFile) {
+    file_put_contents("cache/lastOffset.json", json_encode(["lastOffset" => "null"]));
+}
+
+$last_offset = json_decode($last_offsetFile, true);
 
 $offset = $_GET['offset'] ?? 0;
 $total = $_GET['total'] ?? 0;
 
-if ($offset === $last_offset) {
+if ($offset === $last_offset["lastOffset"]) {
     return false;
 }
 
-$last_offset = $offset;
+file_put_contents("cache/lastOffset.json", json_encode(["lastOffset" => $offset]));
 
 if ($total === 0) {
     return false;
