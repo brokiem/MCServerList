@@ -32,8 +32,10 @@
             }
         });
 
-        window.onscroll = function () {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        $(document).ready(function () {
+            $(".showServers").click(function () {
+                $(".showServers").attr("original-text", $(".showServers").html()).prop("disabled", true).html('<div class="d-grid gap-2 d-flex"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></div>')
+
                 $.ajax({
                     type: 'GET',
                     url: 'src/servers.php',
@@ -44,11 +46,14 @@
                     success: function (data) {
                         if (false !== data) {
                             $('#servers').append(data);
+                            setTimeout(function () {
+                                $(".showServers").prop("disabled", false).html($(".showServers").attr("original-text"));
+                            }, 2000);
                         }
                     }
                 });
-            }
-        };
+            });
+        });
     </script>
 </head>
 
@@ -58,15 +63,20 @@
 <div id="home"></div>
 
 <div class="container">
-    <div class="servers" id="servers">
-
-    </div>
+    <div class="servers" id="servers"></div>
 
     <?php
     include("src/cachemanager.php");
     startQuery();
     saveCachedFile();
     ?>
+
+    <div class="d-grid gap-2">
+        <button class="showServers btn btn-primary" type="button">Show more servers</button>
+    </div>
+
+    <div id="home"></div>
+    <div id="home"></div>
 </div>
 
 <footer class="card-bg-dark text-center text-lg-start">
