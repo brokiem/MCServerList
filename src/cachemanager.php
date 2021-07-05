@@ -56,7 +56,7 @@ function saveCachedFile(bool $force = false): bool {
         $query->setFetchMode(PDO::FETCH_ASSOC);
 
         while (($rowQ = $query->fetch(PDO::FETCH_ASSOC)) !== false) {
-            if ($id === $rowQ["id"]) {
+            if ($row["id"] === $rowQ["id"]) {
                 $servers[$id]["status"] = $rowQ["status"];
                 $servers[$id]["players"] = $rowQ["players"];
                 $servers[$id]["maxPlayers"] = $rowQ["maxplayers"];
