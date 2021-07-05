@@ -26,8 +26,8 @@
 
     include("src/cachemanager.php");
 
-    saveCachedFile();
     startQuery();
+    saveCachedFile();
 
     $serversFile = @file_get_contents("cache/servers.json");
 
