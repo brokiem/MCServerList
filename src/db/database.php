@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS serverlist (
     description VARCHAR(2048) NOT NULL,
     PRIMARY KEY (id)
 )");
+
 $connection->exec("
 CREATE TABLE IF NOT EXISTS querydata (
     id INT UNSIGNED NOT NULL,
