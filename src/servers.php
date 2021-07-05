@@ -2,11 +2,19 @@
 
 include("db/database.php");
 
+$last_offset = "null";
+
 $offset = $_GET['offset'] ?? 0;
 $total = $_GET['total'] ?? 0;
 
+if ($offset === $last_offset) {
+    return false;
+}
+
+$last_offset = $offset;
+
 if ($total === 0) {
-    return;
+    return false;
 }
 
 $list = $connection->query("SELECT * FROM serverlist LIMIT $offset, $total");
