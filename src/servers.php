@@ -29,5 +29,3 @@ while (($row = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
         }
     }
 }
-
-echo '<div class="d-grid gap-2"><button class="showServers btn btn-primary" type="button">Show more servers</button></div>';

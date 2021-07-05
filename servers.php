@@ -34,7 +34,7 @@
 
         $(document).ready(function () {
             $(".showServers").click(function () {
-                $(".showServers").attr("original-text", $(".showServers").html()).prop("disabled", true).html('<div class="d-grid gap-2 d-flex"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></div>')
+                $(".showServers").attr("original-text", $(".showServers").html()).prop("disabled", true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>')
 
                 $.ajax({
                     type: 'GET',
@@ -54,6 +54,10 @@
                 });
             });
         });
+
+        setTimeout(function () {
+            document.getElementById("showServersBtn").style.display = "block";
+        }, 3000);
     </script>
 </head>
 
@@ -68,16 +72,13 @@
     <?php
     include("src/cachemanager.php");
     startQuery();
-    saveCachedFile();
     ?>
+
+    <div style="display:none;" id="showServersBtn" class="text-center">
+        <button class="showServers btn btn-primary" type="button">Show more servers</button>
+    </div>
 
     <div id="home"></div>
     <div id="home"></div>
 </div>
-
-<footer class="card-bg-dark text-center text-lg-start">
-    <div class="text-center p-3">
-        © 2021 Copyright <b>MC Server List</b>
-    </div>
-</footer>
 </body>
