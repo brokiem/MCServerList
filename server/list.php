@@ -8,6 +8,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
 
+    <link rel="icon" href="/assets/icon/favicon.ico" type="image/x-icon">
+
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
