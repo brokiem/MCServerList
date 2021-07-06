@@ -18,7 +18,7 @@
     <script>
         setTimeout(function () {
             window.location.href = "/server/list";
-        }, 1);
+        }, 500);
     </script>
 </head>
 
