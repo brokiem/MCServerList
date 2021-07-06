@@ -50,6 +50,7 @@
 
         <button id="sumbitBtn" type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <br><br><br>
+
+    <div id="space"></div>
 </div>
 </body>
