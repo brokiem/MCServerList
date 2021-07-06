@@ -10,6 +10,11 @@ RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [L]
 
+<Files "QueryServerProcess.php">
+Order Allow,Deny
+Deny from all
+</Files>
+
 </IfModule>
 
 <IfModule mod_deflate.c>
