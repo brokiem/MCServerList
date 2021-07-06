@@ -48,8 +48,14 @@ foreach ($data as $id => $row) {
             <div class="card-body card-bg-dark rounded">
                 <h3 class="card-title">' . $row["title"] . '</h3>
                 <h5><span class="badge bg-secondary">' . $row["address"] . ':' . $row["port"] . '</span> ' . $status . ' <span class="badge bg-primary">' . $row["version"] . '</span> <span class="badge bg-info">' . $row["players"] . '/' . $row["maxplayers"] . '</span></h5>
-                <p class="card-text">' . htmlspecialchars($row["hostname"]) . '</p>
+                <p class="card-text">' . parse_minecraft_colors($row["hostname"]) . '</p>
             </div></div></div>';
+}
+
+function parse_minecraft_colors($string): string {
+    $string = utf8_decode(htmlspecialchars($string, ENT_QUOTES, "UTF-8"));
+    $string = preg_replace('/\xA7([0-9a-f])/i', '<span class="mc-color mc-$1">', $string, -1, $count) . str_repeat("</span>", $count);
+    return utf8_encode(preg_replace('/\xA7([k-or])/i', '<span class="mc-$1">', $string, -1, $count) . str_repeat("</span>", $count));
 }
 
 $data = [];
