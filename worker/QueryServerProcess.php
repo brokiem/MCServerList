@@ -3,10 +3,10 @@
 start(init());
 
 function init(): PDO {
-    $mysql_address = getenv("mysql-address-query");
-    $mysql_db = getenv("mysql-db-query");
-    $mysql_username = getenv("mysql-user-query");
-    $mysql_password = getenv("mysql-pass-query");
+    $mysql_address = getenv("mysql-address");
+    $mysql_db = getenv("mysql-db");
+    $mysql_username = getenv("mysql");
+    $mysql_password = getenv("mysql");
 
     $connection = new PDO("mysql:host=$mysql_address; dbname=$mysql_db", $mysql_username, $mysql_password);
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
