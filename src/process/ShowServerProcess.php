@@ -28,6 +28,7 @@ while (($row = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
                 "version" => $rowQ["version"],
                 "players" => $rowQ["players"],
                 "maxplayers" => $rowQ["maxplayers"],
+                "hostname" => $rowQ["hostname"],
                 "caption" => $row["caption"]
             ];
         }
@@ -47,7 +48,7 @@ foreach ($data as $id => $row) {
             <div class="card-body card-bg-dark rounded">
                 <h3 class="card-title">' . $row["title"] . '</h3>
                 <h5><span class="badge bg-secondary">' . $row["address"] . ':' . $row["port"] . '</span> ' . $status . ' <span class="badge bg-primary">' . $row["version"] . '</span> <span class="badge bg-info">' . $row["players"] . '/' . $row["maxplayers"] . '</span></h5>
-                <p class="card-text">' . $row["caption"] . '</p>
+                <p class="card-text">' . $row["hostname"] . '</p>
             </div></div></div>';
 }
 
