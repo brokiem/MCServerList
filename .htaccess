@@ -13,7 +13,6 @@ RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [L]
 <Files "QueryServerProcess.php">
 Order Allow,Deny
 Deny from all
-ErrorDocument 404
 </Files>
 
 </IfModule>
