@@ -57,6 +57,10 @@
             setTimeout(function () {
                 document.getElementById("showServersBtn").style.display = "block";
             }, 2500);
+
+            setTimeout(function () {
+                document.getElementById("footerCard").style.display = "block";
+            }, 500);
         });
     </script>
 </head>
@@ -70,10 +74,16 @@
     <div class="servers" id="servers"></div>
 
     <div style="display:none;" id="showServersBtn" class="text-center">
-        <button class="showServers btn btn-primary" type="button">Show more servers</button>
+        <button class="showServers btn btn-primary btn-block" type="button">Show more servers</button>
     </div>
 
     <div id="space"></div>
     <div id="space"></div>
 </div>
 </body>
+
+<footer style="display:none;" id="footerCard" class="card-bg-dark text-center text-lg-start">
+    <div class="text-center p-3">
+        © 2021 Copyright <b>MC Server List</b>
+    </div>
+</footer>

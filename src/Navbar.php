@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-
 <nav class="navbar navbar-expand-lg navbar-dark navbar-bg-dark">
     <a class="navbar-brand" href="/"><b>MC Servers</b> Beta</a>
 
