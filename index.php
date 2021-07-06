@@ -2,18 +2,20 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>MC Servers</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
+    <link rel="icon" href="/assets/icon/favicon.ico" type="image/x-icon">
+
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
 
-    <link href="src/css/animate.css" rel="stylesheet">
-    <link href="src/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
 
     <script>
         setTimeout(function () {

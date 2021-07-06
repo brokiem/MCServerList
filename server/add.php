@@ -2,22 +2,25 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>MC Servers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
 
-    <link href="/src/css/animate.css" rel="stylesheet">
-    <link href="/src/css/styles.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/src/Navbar.php"); ?>
 
-<div id="home"></div>
+<div id="space"></div>
 
 <div class="container">
     <form id="addserver-form" method="post" action="/src/process/AddServerProcess.php">

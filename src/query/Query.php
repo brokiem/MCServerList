@@ -15,8 +15,8 @@ function query(string $host, int $port, int $timeout = 4): ?array {
         return null;
     }
 
-    stream_Set_Timeout($socket, $timeout);
-    stream_Set_Blocking($socket, true);
+    stream_set_timeout($socket, $timeout);
+    stream_set_blocking($socket, true);
 
     // hardcoded magic https://github.com/facebookarchive/RakNet/blob/1a169895a900c9fc4841c556e16514182b75faf8/Source/RakPeer.cpp#L135
     $OFFLINE_MESSAGE_DATA_ID = \pack('c*', 0x00, 0xFF, 0xFF, 0x00, 0xFE, 0xFE, 0xFE, 0xFE, 0xFD, 0xFD, 0xFD, 0xFD, 0x12, 0x34, 0x56, 0x78);

@@ -3,7 +3,7 @@ body {
     color: #c9d1d9 !important;
 }
 
-#home {
+#space {
     width: 100%;
     height: 1%;
     padding: 1%;
@@ -15,8 +15,8 @@ li {
 }
 
 .navbar-bg-dark {
-    background-color: #1c1c1c !important;
-    border-color: #1c1c1c !important;
+    background-color: #292929 !important;
+    border-color: #292929 !important;
 }
 
 .card-bg-dark {
