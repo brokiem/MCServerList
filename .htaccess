@@ -10,7 +10,7 @@ RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [L]
 
-<Files "QueryServerProcess.php">
+<Files "QueryServerTask.php">
 Order Allow,Deny
 Deny from all
 Redirect 404
