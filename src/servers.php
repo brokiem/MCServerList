@@ -34,6 +34,10 @@ while (($row = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
     }
 }
 
+if (empty($data)) {
+    return false;
+}
+
 shuffle($data); // shuffle servers
 
 foreach ($data as $id => $row) {

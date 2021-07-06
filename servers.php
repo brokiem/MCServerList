@@ -6,7 +6,7 @@
     <title>MC Servers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -53,11 +53,11 @@
                     }
                 });
             });
-        });
 
-        setTimeout(function () {
-            document.getElementById("showServersBtn").style.display = "block";
-        }, 5000);
+            setTimeout(function () {
+                document.getElementById("showServersBtn").style.display = "block";
+            }, 2500);
+        });
     </script>
 </head>
 
@@ -68,11 +68,6 @@
 
 <div class="container">
     <div class="servers" id="servers"></div>
-
-    <?php
-    include("src/cachemanager.php");
-    startQuery();
-    ?>
 
     <div style="display:none;" id="showServersBtn" class="text-center">
         <button class="showServers btn btn-primary" type="button">Show more servers</button>

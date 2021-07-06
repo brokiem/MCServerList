@@ -6,7 +6,7 @@
     <title>MC Servers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
 
     <link href="src/css/animate.css" rel="stylesheet">
     <link rel="stylesheet" href="src/css/styles.css">
@@ -45,7 +45,7 @@
                    max="65535" minlength="1" data-bind="value:replyNumber" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button id="sumbitBtn" type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 </body>
