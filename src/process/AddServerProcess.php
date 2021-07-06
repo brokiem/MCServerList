@@ -23,7 +23,7 @@ function validate(string $name, string $caption, string $desc, string $address, 
     }
 
     include($_SERVER['DOCUMENT_ROOT'] . "/src/db/Database.php");
-    $list = $connection->query("SELECT * FROM serverlist WHERE address IN (SELECT address FROM serverlist WHERE address=" . strtolower($address) . ")");
+    $list = $connection->query("SELECT * FROM serverlist WHERE address IN (SELECT address FROM serverlist WHERE address = '$address')");
     $list->setFetchMode(PDO::FETCH_ASSOC);
 
     if (is_array($row = $list->fetch(PDO::FETCH_ASSOC)) && (int)$row["port"] === (int)$port) {
@@ -52,7 +52,7 @@ function addServer(string $name, string $caption, string $desc, string $address,
     );
 
     $prep->bindParam(":title", $name, PDO::PARAM_STR);
-    $prep->bindParam(":address", strtolower($address), PDO::PARAM_STR);
+    $prep->bindParam(":address", $address, PDO::PARAM_STR);
     $prep->bindParam(":port", $port, PDO::PARAM_INT);
     $prep->bindParam(":caption", $caption, PDO::PARAM_STR);
     $prep->bindParam(":description", $desc, PDO::PARAM_STR);
