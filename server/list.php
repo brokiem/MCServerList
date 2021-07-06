@@ -6,7 +6,8 @@
     <title>MC Servers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/minecraftia" type="text/css"/>
 
     <link rel="icon" href="/assets/icon/favicon.ico" type="image/x-icon">
 

@@ -6,7 +6,7 @@
     <title>MC Servers</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400">
 
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -18,7 +18,7 @@
     <script>
         setTimeout(function () {
             window.location.href = "/server/list";
-        }, 500);
+        }, 700);
     </script>
 </head>
 
