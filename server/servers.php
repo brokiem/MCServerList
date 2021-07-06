@@ -8,10 +8,10 @@
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="src/css/animate.css">
-    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="/src/css/animate.css">
+    <link rel="stylesheet" href="/src/css/styles.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -20,7 +20,7 @@
     <script>
         $.ajax({
             type: 'GET',
-            url: 'src/servers.php',
+            url: '/src/process/ShowServerProcess.php',
             data: {
                 'offset': $('.servers').length,
                 'total': 5
@@ -38,7 +38,7 @@
 
                 $.ajax({
                     type: 'GET',
-                    url: 'src/servers.php',
+                    url: '/src/process/ShowServerProcess.php',
                     data: {
                         'offset': $('.servers').length,
                         'total': 5
@@ -62,7 +62,7 @@
 </head>
 
 <body>
-<?php include("src/navbar.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/src/Navbar.php"); ?>
 
 <div id="home"></div>
 

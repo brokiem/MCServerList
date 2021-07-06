@@ -1,6 +1,6 @@
 <?php
 
-include("db/database.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/src/db/Database.php");
 
 $offset = $_GET['offset'] ?? 0;
 $total = $_GET['total'] ?? 0;

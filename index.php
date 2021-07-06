@@ -17,7 +17,7 @@
 
     <script>
         setTimeout(function () {
-            window.location.href = "servers";
+            window.location.href = "/server/servers";
         }, 800);
     </script>
 </head>
@@ -26,7 +26,7 @@
 <div class="container">
     <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
         <h1 class="display-3">Loading...</h1>
-        <p class="lead">Please be patient..</p>
+        <p class="lead">Please wait..</p>
         <div class="spinner-border" role="status"></div>
     </div>
 </div>

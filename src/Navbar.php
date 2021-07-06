@@ -13,7 +13,7 @@
                 <a class="nav-link" href="featured">Featured Servers</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="addserver">Add Server</a>
+                <a class="nav-link" href="/server/add">Add Server</a>
             </li>
         </ul>
     </div>
