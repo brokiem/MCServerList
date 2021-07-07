@@ -24,9 +24,22 @@ li {
     background-color: #252525 !important;
     color: #c9d1d9 !important;
 }
+
 p, h1, h2, h3, a {
     font-family: Quicksand, sans-serif !important;
 }
+
 .mcfont {
     font-family: MinecraftiaRegular, sans-serif !important;
+}
+
+.effect-underline {
+    padding-bottom: 3px;
+    background: linear-gradient(to left, currentcolor, currentcolor) bottom center no-repeat;
+    transition: 0.4s;
+    background-size: 0 3px;
+}
+
+.effect-underline:hover {
+    background-size: 80% 3px;
 }
