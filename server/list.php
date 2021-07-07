@@ -33,11 +33,9 @@
                 }
             }
         });
-
         $(document).ready(function () {
             $(".showServers").click(function () {
                 $(".showServers").attr("original-text", $(".showServers").html()).prop("disabled", true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>')
-
                 $.ajax({
                     type: 'GET',
                     url: '/src/process/ShowServerProcess.php',
@@ -55,11 +53,9 @@
                     }
                 });
             });
-
             setTimeout(function () {
                 document.getElementById("showServersBtn").style.display = "block";
             }, 2500);
-
             setTimeout(function () {
                 document.getElementById("footerCard").style.display = "block";
             }, 500);

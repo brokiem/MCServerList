@@ -5,16 +5,12 @@
     <meta charset="UTF-8">
     <title>MC Servers</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400">
-
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
-
     <script>
         setTimeout(function () {
             window.location.href = "/server/list";
