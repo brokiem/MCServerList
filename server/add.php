@@ -38,7 +38,9 @@
             <label for="serverDescription" class="form-label">Server description</label>
             <textarea class="form-control" name="serverDescription" rows="3" maxlength="2048" required></textarea>
         </div>
-        <br>
+
+        <div id="space"></div>
+
         <label for="serverInfo" class="form-label">Server address and port</label>
         <div class="input-group mb-4">
             <input type="text" class="form-control" placeholder="Address" name="serverAddress" minlength="3"
@@ -49,6 +51,10 @@
                    max="65535" minlength="1" data-bind="value:replyNumber" required>
         </div>
 
+        <div id="space"></div>
+        <div id="space"></div>
+
+        <label for="serverInfo" class="form-label">Verify that you are not a robot</label>
         <div class="form-group">
             <div class="g-recaptcha" data-theme="dark" data-sitekey="6LcLm30bAAAAAAd6_l0PbFdzzLK6TCjrVjYd0JiL"></div>
         </div>
@@ -56,6 +62,7 @@
         <button id="sumbitBtn" type="submit" class="btn btn-primary">Submit</button>
     </form>
 
+    <div id="space"></div>
     <div id="space"></div>
     <div id="space"></div>
 </div>
