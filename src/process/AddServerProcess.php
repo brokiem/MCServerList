@@ -33,7 +33,7 @@ function validate($captcha, string $name, string $caption, string $desc, string 
     }
 
     $recaptcha = new ReCaptcha\ReCaptcha($captcha_secret_key);
-    $response = $recaptcha->verify($captcha, $_SERVER["REMOTE_ADDR']);
+    $response = $recaptcha->verify($captcha, $_SERVER["REMOTE_ADDR"]);
 
     if (!$response->isSuccess()) {
         header("location: /status/captcha");
