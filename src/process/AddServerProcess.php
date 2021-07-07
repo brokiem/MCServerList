@@ -21,11 +21,11 @@ function validate($captcha, string $name, string $caption, string $desc, string 
 
     require_once($_SERVER["DOCUMENT_ROOT"] . '/vendor/autoload.php');
 
-    $name = htmlspecialchars($name, ENT_COMPAT, 'ISO-8859-1');
-    $caption = htmlspecialchars($caption, ENT_COMPAT, 'ISO-8859-1');
-    $desc = htmlspecialchars($desc, ENT_COMPAT, 'ISO-8859-1');
-    $address = htmlspecialchars($address, ENT_COMPAT, 'ISO-8859-1');
-    $port = htmlspecialchars($port, ENT_COMPAT, 'ISO-8859-1');
+    $name = htmlspecialchars($name, ENT_COMPAT, "ISO-8859-1");
+    $caption = htmlspecialchars($caption, ENT_COMPAT, "ISO-8859-1");
+    $desc = htmlspecialchars($desc, ENT_COMPAT, "ISO-8859-1");
+    $address = htmlspecialchars($address, ENT_COMPAT, "ISO-8859-1");
+    $port = htmlspecialchars($port, ENT_COMPAT, "ISO-8859-1");
 
     if ($captcha == null || $caption == "") {
         header("location: /status/captcha");
