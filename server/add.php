@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/src/Navbar.php"); ?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/src/Navbar.php"); ?>
 
 <div id="space"></div>
 

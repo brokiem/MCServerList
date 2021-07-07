@@ -1,9 +1,9 @@
 <?php
 
-include($_SERVER['DOCUMENT_ROOT'] . "/src/db/Database.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/db/Database.php");
 
-$offset = $_GET['offset'] ?? 0;
-$total = $_GET['total'] ?? 0;
+$offset = $_GET["offset"] ?? 0;
+$total = $_GET["total"] ?? 0;
 
 if ($total === 0) {
     return;
