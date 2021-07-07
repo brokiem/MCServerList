@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-group">
-            <div class="g-recaptcha" data-sitekey="6LcLm30bAAAAAAd6_l0PbFdzzLK6TCjrVjYd0JiL"></div>
+            <div class="g-recaptcha" data-theme="dark" data-sitekey="6LcLm30bAAAAAAd6_l0PbFdzzLK6TCjrVjYd0JiL"></div>
         </div>
 
         <button id="sumbitBtn" type="submit" class="btn btn-primary">Submit</button>
