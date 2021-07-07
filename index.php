@@ -16,6 +16,10 @@
             window.location.href = "/server/list";
         }, 700);
     </script>
+
+    <meta content="https://www-mcserverlist.herokuapp.com/" property="og:url"/>
+    <meta content="MC Server List" property="og:title"/>
+    <meta content="Minecraft: Bedrock Edition Servers List" property="og:description"/>
 </head>
 
 <body>
