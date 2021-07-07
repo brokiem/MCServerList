@@ -7,27 +7,44 @@ if (empty($input)) {
     return;
 }
 
+$captchaRes = $input['g-recaptcha-response'] ?? null;
 $serverName = $input["serverName"];
 $serverCaption = $input["serverCaption"] ?? "";
 $serverDesc = $input["serverDescription"];
 $address = $input["serverAddress"];
 $port = $input["serverPort"];
 
-validate($serverName, $serverCaption, $serverDesc, $address, $port);
+validate($captchaRes, $serverName, $serverCaption, $serverDesc, $address, $port);
 
-function validate(string $name, string $caption, string $desc, string $address, $port) {
+function validate($captcha, string $name, string $caption, string $desc, string $address, $port) {
+    include($_SERVER['DOCUMENT_ROOT'] . "/src/db/Database.php");
+
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+
     $name = htmlspecialchars($name, ENT_COMPAT, 'ISO-8859-1');
     $caption = htmlspecialchars($caption, ENT_COMPAT, 'ISO-8859-1');
     $desc = htmlspecialchars($desc, ENT_COMPAT, 'ISO-8859-1');
     $address = htmlspecialchars($address, ENT_COMPAT, 'ISO-8859-1');
     $port = htmlspecialchars($port, ENT_COMPAT, 'ISO-8859-1');
 
+    if ($captcha == null || $caption == "") {
+        header("location: /status/captcha.html");
+        return;
+    }
+
+    $recaptcha = new ReCaptcha\ReCaptcha($captcha_secret_key);
+    $response = $recaptcha->verify($captcha, $_SERVER['REMOTE_ADDR']);
+
+    if (!$response->isSuccess()) {
+        header("location: /status/captcha.html");
+        return;
+    }
+
     if (strlen($name) >= 32 or strlen($caption) >= 128 or strlen($desc) >= 2048 or strlen($address) >= 64 or strlen($port) >= 8) {
         header("location: /status/failed");
         return;
     }
 
-    include($_SERVER['DOCUMENT_ROOT'] . "/src/db/Database.php");
     $list = $connection->query("SELECT * FROM serverlist WHERE address IN (SELECT address FROM serverlist WHERE address = '$address')");
     $list->setFetchMode(PDO::FETCH_ASSOC);
 

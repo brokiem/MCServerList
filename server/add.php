@@ -14,6 +14,7 @@
 
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body>
@@ -46,6 +47,10 @@
             <input type="number" class="form-control" placeholder="Port" name="serverPort" value="19132" maxlength="8"
                    min="1"
                    max="65535" minlength="1" data-bind="value:replyNumber" required>
+        </div>
+
+        <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="6LcLm30bAAAAAAd6_l0PbFdzzLK6TCjrVjYd0JiL"></div>
         </div>
 
         <button id="sumbitBtn" type="submit" class="btn btn-primary">Submit</button>
