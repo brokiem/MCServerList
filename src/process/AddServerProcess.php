@@ -28,7 +28,7 @@ function validate($captcha, string $name, string $caption, string $desc, string 
     $port = htmlspecialchars($port, ENT_COMPAT, 'ISO-8859-1');
 
     if ($captcha == null || $caption == "") {
-        header("location: /status/captcha.html");
+        header("location: /status/captcha");
         return;
     }
 
@@ -36,7 +36,7 @@ function validate($captcha, string $name, string $caption, string $desc, string 
     $response = $recaptcha->verify($captcha, $_SERVER['REMOTE_ADDR']);
 
     if (!$response->isSuccess()) {
-        header("location: /status/captcha.html");
+        header("location: /status/captcha");
         return;
     }
 
