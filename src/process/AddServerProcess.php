@@ -2,6 +2,11 @@
 
 $input = $_POST;
 
+if (empty($input)) {
+    header("location: /");
+    return;
+}
+
 $serverName = $input["serverName"];
 $serverCaption = $input["serverCaption"] ?? "";
 $serverDesc = $input["serverDescription"];
