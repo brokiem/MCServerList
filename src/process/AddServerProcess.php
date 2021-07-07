@@ -18,7 +18,6 @@ validate($captchaRes, $serverName, $serverCaption, $serverDesc, $address, $port)
 
 function validate($captcha, string $name, string $caption, string $desc, string $address, $port) {
     include($_SERVER["DOCUMENT_ROOT"] . "/src/db/Database.php");
-
     require_once($_SERVER["DOCUMENT_ROOT"] . '/vendor/autoload.php');
 
     $name = htmlspecialchars($name, ENT_COMPAT, "ISO-8859-1");
@@ -49,24 +48,24 @@ function validate($captcha, string $name, string $caption, string $desc, string 
     $list->setFetchMode(PDO::FETCH_ASSOC);
 
     if (is_array($row = $list->fetch(PDO::FETCH_ASSOC)) && (int)$row["port"] === (int)$port) {
-        header("location: /status / failed");
+        header("location: /status/failed");
         return;
     }
 
-    include($_SERVER["DOCUMENT_ROOT"] . "/src / query / Query . php");
+    include($_SERVER["DOCUMENT_ROOT"] . "/src/query/Query.php");
     $query = query($address, (int)$port, 3);
 
     if (!$query) {
-        header("location: /status / failed");
+        header("location: /status/failed");
         return;
     }
 
     addServer($name, $caption, $desc, $address, (int)$port, $query);
-    header("location: /status / success");
+    header("location: /status/success");
 }
 
 function addServer(string $name, string $caption, string $desc, string $address, $port, $query) {
-    include($_SERVER["DOCUMENT_ROOT"] . "/src / db / Database . php");
+    include($_SERVER["DOCUMENT_ROOT"] . "/src/db/Database.php");
 
     $prep = $connection->prepare(
         "INSERT INTO serverlist(title, address, port, caption, description)
