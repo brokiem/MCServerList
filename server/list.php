@@ -5,20 +5,15 @@
     <meta charset="UTF-8">
     <title>MC Servers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/minecraftia" type="text/css"/>
-
     <link rel="icon" href="/assets/icon/favicon.ico" type="image/x-icon">
-
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/minecraftcolors.min.css">
-
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
-
     <script>
         $.ajax({
             type: 'GET',
@@ -65,24 +60,18 @@
 
 <body>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/Navbar.php"); ?>
-
 <div id="space"></div>
-
 <div class="container">
     <div class="servers" id="servers"></div>
-
     <div style="display:none;" id="showServersBtn" class="text-center">
         <button class="showServers btn btn-primary btn-block" type="button">Show more servers</button>
     </div>
-
     <div id="space"></div>
     <div id="space"></div>
     <div id="space"></div>
 </div>
 </body>
-
 <footer style="display:none;" id="footerCard" class="card-bg-dark text-center text-lg-start">
-    <div class="text-center p-3">
-        © 2021 Copyright <b>MC Server List</b>
+    <div class="text-center p-3">© 2021 Copyright <b>MC Server List</b>
     </div>
 </footer>
