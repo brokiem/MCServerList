@@ -72,6 +72,7 @@
 </div>
 </body>
 <footer style="display:none;" id="footerCard" class="card-bg-dark text-center text-lg-start">
-    <div class="text-center p-3">© 2021 Copyright <a href="https://github.com/brokiem"><b>brokiem</b></a>
+    <div class="text-center p-3">Copyright © 2021 <a href="https://github.com/brokiem"
+                                                     target="_blank"><b>brokiem</b></a>
     </div>
 </footer>
