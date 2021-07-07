@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400">
 
+    <link rel="icon" href="/assets/icon/favicon.ico" type="image/x-icon">
+
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -51,7 +53,6 @@
                    max="65535" minlength="1" data-bind="value:replyNumber" required>
         </div>
 
-        <div id="space"></div>
         <div id="space"></div>
 
         <label for="serverInfo" class="form-label">Verify that you are not a robot</label>
