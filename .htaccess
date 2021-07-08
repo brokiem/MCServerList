@@ -15,9 +15,15 @@ ErrorDocument 403 /status/error/403
 ErrorDocument 404 /status/error/404
 ErrorDocument 500 /status/error/500
 
+<Directory /src>
+    Order Allow,Deny
+    Deny from all
+    Allow from 127.0.0.1
+</Directory>
+
 <Files "QueryServerTask.php">
-Order Allow,Deny
-Deny from all
+    Order Allow,Deny
+    Deny from all
 </Files>
 
 </IfModule>
