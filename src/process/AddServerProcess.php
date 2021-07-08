@@ -44,12 +44,15 @@ function validate($captcha, string $name, string $caption, string $desc, string 
         die();
     }
 
-    $list = $connection->query("SELECT * FROM serverlist WHERE address IN(SELECT address FROM serverlist WHERE address = '$address')");
+    $list = $connection->prepare("SELECT * FROM serverlist WHERE address = ?");
+    $list->execute([$address]);
     $list->setFetchMode(PDO::FETCH_ASSOC);
 
-    if (is_array($row = $list->fetch(PDO::FETCH_ASSOC)) && (int)$row["port"] === (int)$port) {
-        header("location: /status/failed");
-        die();
+    while (($row = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
+        if ((int)$row["port"] === (int)$port) {
+            header("location: /status/failed");
+            die();
+        }
     }
 
     include($_SERVER["DOCUMENT_ROOT"] . "/src/query/Query.php");

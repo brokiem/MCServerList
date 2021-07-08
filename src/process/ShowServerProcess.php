@@ -9,7 +9,12 @@ if ($total === 0) {
     die();
 }
 
-$list = $connection->query("SELECT * FROM serverlist LIMIT $offset, $total");
+$list = $connection->prepare("SELECT * FROM serverlist LIMIT :offset, :total");
+
+$list->bindValue(":offset", $offset, PDO::PARAM_INT);
+$list->bindValue(":total", $total, PDO::PARAM_INT);
+$list->execute();
+
 $list->setFetchMode(PDO::FETCH_ASSOC);
 
 $data = [];

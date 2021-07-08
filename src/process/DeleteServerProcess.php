@@ -17,7 +17,7 @@ if ($serverid === null or $secretKey !== $admin_secret_key) {
     die();
 }
 
-$connection->exec("DELETE FROM serverlist WHERE id=" . $serverid);
-$connection->exec("DELETE FROM querydata WHERE id=" . $serverid);
+$connection->prepare("DELETE FROM serverlist WHERE id = ?")->execute([$serverid]);
+$connection->prepare("DELETE FROM querydata WHERE id = ?")->execute([$serverid]);
 
 echo "<script type='text/javascript'> window.history.go(-1); </script>";
