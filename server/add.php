@@ -13,6 +13,8 @@
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script data-ad-client="ca-pub-1738139518784794" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>
