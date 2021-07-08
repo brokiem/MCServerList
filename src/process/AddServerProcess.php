@@ -4,7 +4,7 @@ $input = $_POST;
 
 if (empty($input)) {
     header("location: /");
-    return;
+    die();
 }
 
 $captchaRes = $input["g-recaptcha-response"] ?? null;
@@ -28,7 +28,7 @@ function validate($captcha, string $name, string $caption, string $desc, string 
 
     if ($captcha == null || $caption == "") {
         header("location: /status/captcha");
-        return;
+        die();
     }
 
     $recaptcha = new ReCaptcha\ReCaptcha($captcha_secret_key);
@@ -36,12 +36,12 @@ function validate($captcha, string $name, string $caption, string $desc, string 
 
     if (!$response->isSuccess()) {
         header("location: /status/captcha");
-        return;
+        die();
     }
 
     if (strlen($name) >= 32 or strlen($caption) >= 128 or strlen($desc) >= 2048 or strlen($address) >= 64 or strlen($port) >= 8) {
         header("location: /status/failed");
-        return;
+        die();
     }
 
     $list = $connection->query("SELECT * FROM serverlist WHERE address IN(SELECT address FROM serverlist WHERE address = '$address')");
@@ -49,7 +49,7 @@ function validate($captcha, string $name, string $caption, string $desc, string 
 
     if (is_array($row = $list->fetch(PDO::FETCH_ASSOC)) && (int)$row["port"] === (int)$port) {
         header("location: /status/failed");
-        return;
+        die();
     }
 
     include($_SERVER["DOCUMENT_ROOT"] . "/src/query/Query.php");
@@ -57,7 +57,7 @@ function validate($captcha, string $name, string $caption, string $desc, string 
 
     if (!$query) {
         header("location: /status/failed");
-        return;
+        die();
     }
 
     addServer($name, $caption, $desc, $address, (int)$port, $query);

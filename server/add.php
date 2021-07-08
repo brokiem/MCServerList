@@ -36,7 +36,8 @@
         <label for="serverInfo" class="form-label">Server address and port</label>
         <div class="input-group mb-4">
             <input type="text" class="form-control" placeholder="Address" name="serverAddress" minlength="3"
-                   maxlength="64" required> <span class="input-group-text">::</span>
+                   maxlength="64" required>
+            <span class="input-group-text">::</span>
             <input type="number" class="form-control" placeholder="Port" name="serverPort" value="19132" maxlength="8"
                    min="1" max="65535" minlength="1" data-bind="value:replyNumber" required>
         </div>

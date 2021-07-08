@@ -2,6 +2,7 @@
 RewriteEngine On
 Options +FollowSymLinks
 Options -MultiViews
+Options All -Indexes
 RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME}.php -f
@@ -13,6 +14,8 @@ RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [L]
 ErrorDocument 403 /status/error/403
 ErrorDocument 404 /status/error/404
 ErrorDocument 500 /status/error/500
+
+RewriteRule ^src / [NC,R,L]
 
 <Files "QueryServerTask.php">
 Order Allow,Deny
