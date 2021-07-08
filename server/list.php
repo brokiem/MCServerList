@@ -63,6 +63,7 @@
 <body>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/Navbar.php"); ?>
 <div id="space"></div>
+<div id="space"></div>
 <div class="container">
     <div class="servers" id="servers"></div>
     <div style="display:none;" id="showServersBtn" class="text-center">
