@@ -48,7 +48,7 @@ shuffle($data); // shuffle servers
 
 foreach ($data as $id => $row) {
     $status = $row["status"] === "offline" ? '<span class="badge badge-danger">Offline</span>' : '<span class="badge badge-success">Online</span>';
-    //echo '<div class="servers"><svg class="bd-placeholder-img card-img-top" width="100%" height="40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><img src="/assets/img/banner.min.png" draggable="false" onmousedown="die() false" style="user-drag: none" class="img-fluid rounded" "></svg>';
+    echo '<div class="servers"><svg class="bd-placeholder-img card-img-top" width="100%" height="40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><img src="/assets/img/banner.min.png" draggable="false" onmousedown="die() false" style="user-drag: none" class="img-fluid rounded" "></svg>';
     echo '<div class="servers shadow p-3 mb-5 card mb-3 card-bg-dark"><div class="card-body card-bg-dark rounded">
 		<h3 class="card-title">' . $row["title"] . '</h3>
 		<h5><span class="badge bg-secondary">' . $row["address"] . ':' . $row["port"] . '</span> ' . $status . ' <span class="badge bg-primary">' . $row["version"] . '</span> <span class="badge bg-info">' . $row["players"] . '/' . $row["maxplayers"] . '</span></h5>

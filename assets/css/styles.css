@@ -42,6 +42,6 @@ p, h1, h2, h3, a {
 
 @media (hover: hover) and (pointer: fine) {
     .effect-underline:hover {
-        background-size: 80% 3px;
+        background-size: 100% 3px;
     }
 }
