@@ -1,1 +1,9 @@
-{}
+{
+  "name": "brokiem/mcserverlist",
+  "type": "project",
+  "require": {
+    "google/recaptcha": "1.2.4"
+  },
+  "license": "MIT",
+  "minimum-stability": "dev"
+}
