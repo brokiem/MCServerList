@@ -29,11 +29,11 @@
             <input type="text" class="form-control" name="serverCaption" minlength="10" maxlength="128" required>
         </div>
         <div class="mb-3">
-            <label for="serverDescription" class="form-label">Server description</label>
+            <label for="serverDescription" class="form-label">Server description (Optional)</label>
             <textarea class="form-control" name="serverDescription" rows="3" maxlength="2048"></textarea>
         </div>
         <div class="mb-4">
-            <label for="serverBanner" class="form-label">Server banner URL (raw png url)</label>
+            <label for="serverBanner" class="form-label">Raw PNG URL server banner (Optional)</label>
             <textarea type="text" class="form-control" name="serverBanner" maxlength="1024"></textarea>
         </div>
         <div id="space"></div>
