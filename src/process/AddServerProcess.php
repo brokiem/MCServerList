@@ -33,7 +33,7 @@ function validate($captcha, string $name, string $caption, string $desc, string 
         die();
     }
 
-    $recaptcha = new ReCaptcha\ReCaptcha($admin_secret_key);
+    $recaptcha = new ReCaptcha\ReCaptcha($captcha_secret_key);
     $response = $recaptcha->verify($captcha, $_SERVER["REMOTE_ADDR"]);
 
     if (!$response->isSuccess()) {
