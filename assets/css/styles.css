@@ -45,3 +45,11 @@ p, h1, h2, h3, a {
         background-size: 100% 3px;
     }
 }
+
+.zoom-in {
+    transition: .2s;
+}
+
+.zoom-in:hover {
+    transform: scale(1.01);
+}
