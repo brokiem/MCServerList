@@ -81,8 +81,11 @@ function validate($captcha, string $name, string $caption, string $desc, string 
     header("location: /status/success");
 }
 
-function addServer(string $name, string $caption, string $desc, string $banner, string $address, $port, $query) {
+function addServer(string $name, string $caption, string|null $desc, string|null $banner, string $address, $port, $query) {
     include($_SERVER["DOCUMENT_ROOT"] . "/src/db/Database.php");
+
+    $desc = $desc == "" ? null : $banner;
+    $banner = $banner == "" ? null : $banner;
 
     $prep = $connection->prepare(
         "INSERT INTO serverlist(title, address, port, caption, description, banner)
@@ -93,8 +96,8 @@ function addServer(string $name, string $caption, string $desc, string $banner, 
     $prep->bindParam(":address", $address, PDO::PARAM_STR);
     $prep->bindParam(":port", $port, PDO::PARAM_INT);
     $prep->bindParam(":caption", $caption, PDO::PARAM_STR);
-    $prep->bindParam(":description", $desc, PDO::PARAM_STR);
-    $prep->bindParam(":banner", $banner, PDO::PARAM_STR);
+    $prep->bindParam(":description", $desc, PDO::PARAM_STR | PDO::PARAM_NULL);
+    $prep->bindParam(":banner", $banner, PDO::PARAM_STR | PDO::PARAM_NULL);
     $prep->execute();
 
     $list = $connection->query("SELECT * FROM serverlist");
