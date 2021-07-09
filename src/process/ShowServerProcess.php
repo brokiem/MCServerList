@@ -43,7 +43,7 @@ while (($row = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
 
 if (empty($data)) {
     echo '<div class="servers shadow p-3 mb-5 card mb-3 card-bg-dark"><div class="card-body card-bg-dark rounded">
-		<h3 class="card-title">No more servers found</h3>
+		<h3 class="card-title">No more servers found :(</h3>
 		<p class="card-text">Register more server now. <a href="/server/add">Click here</a></p>
 		</div>';
     die();
