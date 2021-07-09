@@ -6,6 +6,7 @@
     <title>MC Servers</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400">
+    <link href="/assets/icon/favicon.ico" rel="icon" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
