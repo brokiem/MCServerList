@@ -46,16 +46,18 @@ function validate($captcha, string $name, string $caption, string $desc, string 
         die();
     }
 
-    if (!preg_match('/https?:\/\/[^?]*\.png(?![\w.\-_])/', $banner)) {
-        header("location: /status/banner");
-        die();
-    }
+    if ($banner != "" or $banner != null) {
+        if (!preg_match('/https?:\/\/[^?]*\.png(?![\w.\-_])/', $banner)) {
+            header("location: /status/banner");
+            die();
+        }
 
-    [$width, $height] = getimagesize($banner);
+        [$width, $height] = getimagesize($banner);
 
-    if ($width !== 1170 and $height !== 180 or fsize($banner) > 1024) {
-        header("location: /status/banner");
-        die();
+        if ($width !== 1170 and $height !== 180 or fsize($banner) > 1024) {
+            header("location: /status/banner");
+            die();
+        }
     }
 
     $list = $connection->prepare("SELECT * FROM serverlist WHERE address = ?");
