@@ -19,6 +19,7 @@ function init(): PDO {
         port INT(8) NOT NULL,
         caption VARCHAR(128) NOT NULL,
         description VARCHAR(2048) NOT NULL,
+        banner VARCHAR(1024) NOT NULL,
         PRIMARY KEY (id)
     )");
 

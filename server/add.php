@@ -21,19 +21,23 @@
 <div class="container">
     <form id="addserver-form" method="post" action="/src/process/AddServerProcess.php">
         <div class="mb-4">
-            <label for="serverName" class="form-label">Server name</label>
+            <label for="serverName" class="form-label">Server name *</label>
             <input type="text" class="form-control" name="serverName" minlength="3" maxlength="32" required>
         </div>
         <div class="mb-4">
-            <label for="serverCaption" class="form-label">Server caption</label>
+            <label for="serverCaption" class="form-label">Server caption *</label>
             <input type="text" class="form-control" name="serverCaption" minlength="10" maxlength="128" required>
         </div>
         <div class="mb-3">
             <label for="serverDescription" class="form-label">Server description</label>
-            <textarea class="form-control" name="serverDescription" rows="3" maxlength="2048" required></textarea>
+            <textarea class="form-control" name="serverDescription" rows="3" maxlength="2048"></textarea>
+        </div>
+        <div class="mb-4">
+            <label for="serverBanner" class="form-label">Server banner URL (raw png url)</label>
+            <textarea type="text" class="form-control" name="serverBanner" maxlength="1024"></textarea>
         </div>
         <div id="space"></div>
-        <label for="serverInfo" class="form-label">Server address and port</label>
+        <label for="serverInfo" class="form-label">Server address and port *</label>
         <div class="input-group mb-4">
             <input type="text" class="form-control" placeholder="Address" name="serverAddress" minlength="3"
                    maxlength="64" required>
@@ -42,7 +46,7 @@
                    min="1" max="65535" minlength="1" data-bind="value:replyNumber" required>
         </div>
         <div id="space"></div>
-        <label for="serverInfo" class="form-label">Verify that you are not a robot</label>
+        <label for="serverInfo" class="form-label">Verify that you are not a robot *</label>
         <div class="form-group">
             <div class="g-recaptcha" data-theme="dark" data-sitekey="6LcLm30bAAAAAAd6_l0PbFdzzLK6TCjrVjYd0JiL"></div>
         </div>

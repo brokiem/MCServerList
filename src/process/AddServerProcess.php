@@ -9,20 +9,22 @@ if (empty($input)) {
 
 $captchaRes = $input["g-recaptcha-response"] ?? null;
 $serverName = $input["serverName"];
-$serverCaption = $input["serverCaption"] ?? "";
-$serverDesc = $input["serverDescription"];
+$serverCaption = $input["serverCaption"];
+$serverDesc = $input["serverDescription"] ?? "";
+$serverBannerURL = $input["serverBanner"] ?? "";
 $address = $input["serverAddress"];
 $port = $input["serverPort"];
 
-validate($captchaRes, $serverName, $serverCaption, $serverDesc, $address, $port);
+validate($captchaRes, $serverName, $serverCaption, $serverDesc, $serverBannerURL, $address, $port);
 
-function validate($captcha, string $name, string $caption, string $desc, string $address, $port) {
+function validate($captcha, string $name, string $caption, string $desc, string $banner, string $address, $port) {
     include($_SERVER["DOCUMENT_ROOT"] . "/src/db/Database.php");
     require_once($_SERVER["DOCUMENT_ROOT"] . '/vendor/autoload.php');
 
     $name = htmlspecialchars($name, ENT_COMPAT, "ISO-8859-1");
     $caption = htmlspecialchars($caption, ENT_COMPAT, "ISO-8859-1");
     $desc = htmlspecialchars($desc, ENT_COMPAT, "ISO-8859-1");
+    $banner = htmlspecialchars($banner, ENT_COMPAT, "ISO-8859-1");
     $address = htmlspecialchars($address, ENT_COMPAT, "ISO-8859-1");
     $port = htmlspecialchars($port, ENT_COMPAT, "ISO-8859-1");
 
@@ -31,7 +33,7 @@ function validate($captcha, string $name, string $caption, string $desc, string 
         die();
     }
 
-    $recaptcha = new ReCaptcha\ReCaptcha($captcha_secret_key);
+    $recaptcha = new ReCaptcha\ReCaptcha($admin_secret_key);
     $response = $recaptcha->verify($captcha, $_SERVER["REMOTE_ADDR"]);
 
     if (!$response->isSuccess()) {
@@ -39,8 +41,20 @@ function validate($captcha, string $name, string $caption, string $desc, string 
         die();
     }
 
-    if (strlen($name) >= 32 or strlen($caption) >= 128 or strlen($desc) >= 2048 or strlen($address) >= 64 or strlen($port) >= 8) {
+    if (strlen($name) >= 32 or strlen($caption) >= 128 or strlen($desc) >= 2048 or strlen($banner) >= 1024 or strlen($address) >= 64 or strlen($port) >= 8) {
         header("location: /status/failed");
+        die();
+    }
+
+    if (!preg_match('/https?:\/\/[^?]*\.png(?![\w.\-_])/', $banner)) {
+        header("location: /status/banner");
+        die();
+    }
+
+    [$width, $height] = getimagesize($banner);
+
+    if ($width !== 1170 and $height !== 180 or fsize($banner) > 1024) {
+        header("location: /status/banner");
         die();
     }
 
@@ -63,16 +77,16 @@ function validate($captcha, string $name, string $caption, string $desc, string 
         die();
     }
 
-    addServer($name, $caption, $desc, $address, (int)$port, $query);
+    addServer($name, $caption, $desc, $banner, $address, (int)$port, $query);
     header("location: /status/success");
 }
 
-function addServer(string $name, string $caption, string $desc, string $address, $port, $query) {
+function addServer(string $name, string $caption, string $desc, string $banner, string $address, $port, $query) {
     include($_SERVER["DOCUMENT_ROOT"] . "/src/db/Database.php");
 
     $prep = $connection->prepare(
-        "INSERT INTO serverlist(title, address, port, caption, description)
-        VALUES(:title, :address, :port, :caption, :description)"
+        "INSERT INTO serverlist(title, address, port, caption, description, banner)
+        VALUES(:title, :address, :port, :caption, :description, :banner)"
     );
 
     $prep->bindParam(":title", $name, PDO::PARAM_STR);
@@ -80,6 +94,7 @@ function addServer(string $name, string $caption, string $desc, string $address,
     $prep->bindParam(":port", $port, PDO::PARAM_INT);
     $prep->bindParam(":caption", $caption, PDO::PARAM_STR);
     $prep->bindParam(":description", $desc, PDO::PARAM_STR);
+    $prep->bindParam(":banner", $banner, PDO::PARAM_STR);
     $prep->execute();
 
     $list = $connection->query("SELECT * FROM serverlist");
@@ -101,4 +116,18 @@ function addServer(string $name, string $caption, string $desc, string $address,
             break;
         }
     }
+}
+
+function fsize($path): int|string {
+    $fp = fopen($path, 'rb');
+    $inf = stream_get_meta_data($fp);
+    fclose($fp);
+    foreach ($inf["wrapper_data"] as $v) {
+        if (false !== stripos($v, "content-length")) {
+            $v = explode(":", $v);
+            return trim($v[1]);
+        }
+    }
+    fclose($fp);
+    return 0;
 }
