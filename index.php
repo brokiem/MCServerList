@@ -17,6 +17,18 @@
             window.location.href = "/server/list";
         }, 700);
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0YD0SXLV4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-F0YD0SXLV4');
+    </script>
     <meta content="https://www-mcserverlist.herokuapp.com/" property="og:url"/>
     <meta content="MC Server List" property="og:title"/>
     <meta content="Minecraft: Bedrock Edition Servers List" property="og:description"/>
