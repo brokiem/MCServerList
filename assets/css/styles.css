@@ -1,0 +1,60 @@
+body {
+    background-color: #1c1c1c !important;
+    color: #c9d1d9 !important;
+}
+
+#space {
+    width: 100%;
+    height: 1%;
+    padding: 1%;
+}
+
+li {
+    display: inline;
+    padding: 0 5px;
+}
+
+.navbar-bg-dark {
+    background-color: #292929 !important;
+    border-color: #292929 !important;
+}
+
+.card-bg-dark {
+    background-color: #292929 !important;
+    color: #c9d1d9 !important;
+    border: transparent !important;
+}
+
+.form-control {
+    background-color: #252525 !important;
+    color: #c9d1d9 !important;
+}
+
+p, h1, h2, h3, a {
+    font-family: Quicksand, sans-serif !important;
+}
+
+.mcfont {
+    font-family: MinecraftiaRegular, sans-serif !important;
+}
+
+.effect-underline {
+    padding-bottom: 3px;
+    background: linear-gradient(to left, currentcolor, currentcolor) bottom center no-repeat;
+    transition: 0.2s;
+    background-size: 0 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .effect-underline:hover {
+        background-size: 100% 3px;
+    }
+}
+
+.zoom-in {
+    transition: .2s;
+}
+
+.zoom-in:hover {
+    transform: scale(1.01);
+}
