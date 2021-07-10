@@ -1,6 +1,5 @@
 body {
-    background-color: #1c1c1c !important;
-    color: #c9d1d9 !important;
+    background-color: #f7f7f7 !important;
 }
 
 #space {
@@ -19,15 +18,8 @@ li {
     border-color: #292929 !important;
 }
 
-.card-bg-dark {
-    background-color: #292929 !important;
-    color: #c9d1d9 !important;
-    border: transparent !important;
-}
-
-.form-control {
-    background-color: #252525 !important;
-    color: #c9d1d9 !important;
+.text-color {
+    color: white !important;
 }
 
 p, h1, h2, h3, a {
@@ -57,4 +49,35 @@ p, h1, h2, h3, a {
 
 .zoom-in:hover {
     transform: scale(1.01);
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1c1c1c !important;
+        color: #c9d1d9 !important;
+    }
+
+    .navbar-bg-dark {
+        background-color: #292929 !important;
+        border-color: #292929 !important;
+    }
+
+    .card-bg-dark {
+        background-color: #292929 !important;
+        color: #c9d1d9 !important;
+        border: transparent !important;
+    }
+
+    .form-control {
+        background-color: #252525 !important;
+        color: #c9d1d9 !important;
+    }
+
+    .text-color {
+        color: #c9d1d9 !important;
+    }
+
+    .footer-color {
+        background-color: #292929 !important;;
+    }
 }
