@@ -24,8 +24,7 @@
 <div class="container text-center text-lg-start">
     <form id="search-server-form" method="post" action="/src/process/SearchServerProcess.php">
         <div class="input-group-append">
-            <input type="text" class="form-control" placeholder="Server address" name="serverAddress" maxlength="64"
-                   required>
+            <input type="text" class="form-control" placeholder="Server address" name="serverAddress" maxlength="64" required>
             <span class="input-group-text rounded-0 card-bg-dark">/</span>
             <input type="text" class="form-control" placeholder="Secret key" name="secretKey" maxlength="32" required>
 

@@ -21,7 +21,8 @@ $connection->exec("
         description VARCHAR(2048),
         banner VARCHAR(1024),
         PRIMARY KEY (id)
-    )");
+    )"
+);
 
 $connection->exec("
     CREATE TABLE IF NOT EXISTS querydata (
@@ -32,4 +33,5 @@ $connection->exec("
         version CHAR(16) NOT NULL,
         hostname VARCHAR(512) NOT NULL,
         PRIMARY KEY (id)
-    )");
+    )"
+);
