@@ -56,6 +56,7 @@
             }, 700);
         });
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0YD0SXLV4"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
