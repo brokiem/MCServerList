@@ -53,9 +53,10 @@ shuffle($data); // shuffle servers
 
 foreach ($data as $id => $row) {
     $banner = $row["banner"] ?? "/assets/img/banner.min.png";
-    $status = $row["status"] === "offline" ? '<span class="badge badge-danger">Offline</span>' : '<span class="badge badge-success">Online</span>';
-    echo '<div class="servers"><svg class="bd-placeholder-img card-img-top" width="100%" height="40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><img src=' . $banner . ' draggable="false" onmousedown="die() false" style="user-drag: none" class="img-fluid rounded zoom-in" "></svg>';
-    echo '<div class="servers shadow p-3 mb-5 card mb-3 card-bg-dark"><div class="card-body card-bg-dark rounded">
+    $status = $row["status"] === "offline" ? '<span class="badge bg-danger">Offline</span>' : '<span class="badge bg-success">Online</span>';
+    echo '<div class="servers shadow mb-5 card mb-3 card-bg-dark zoom-in text-center">
+        <img src=' . $banner . ' draggable="false" onmousedown="die() false" style="user-drag: none" class="img-fluid rounded">
+        <div class="card-body card-bg-dark rounded">
 		<h3 class="card-title">' . $row["title"] . '</h3>
 		<h5><span class="badge bg-secondary text-color">' . $row["address"] . ':' . $row["port"] . '</span> ' . $status . ' <span class="badge bg-primary text-color">' . $row["version"] . '</span> <span class="badge bg-info text-color">' . $row["players"] . '/' . $row["maxplayers"] . '</span></h5>
 		<p class="card-text mcfont">' . parse_minecraft_colors($row["hostname"]) . '</p></div></div>';

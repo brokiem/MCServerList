@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/minecraftcolors.min.css">
+    <meta content="https://www-mcserverlist.herokuapp.com/" property="og:url"/>
+    <meta content="MC Server List" property="og:title"/>
+    <meta content="https://www-mcserverlist.herokuapp.com/assets/icon/icon.png" property="og:image"/>
+    <meta content="Minecraft: Bedrock Edition Servers List" property="og:description"/>
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -20,7 +24,7 @@
             url: '/src/process/ShowServerProcess.php',
             data: {
                 'offset': $('.servers').length,
-                'total': 5
+                'total': 8
             },
             success: function (data) {
                 if (false !== data) {
@@ -28,6 +32,7 @@
                 }
             }
         });
+
         $(document).ready(function () {
             $(".showServers").click(function () {
                 $(".showServers").attr("original-text", $(".showServers").html()).prop("disabled", true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>')
@@ -48,9 +53,11 @@
                     }
                 });
             });
+
             setTimeout(function () {
                 document.getElementById("showServersBtn").style.display = "block";
             }, 2500);
+
             setTimeout(function () {
                 document.getElementById("footerCard").style.display = "block";
             }, 700);
@@ -71,13 +78,28 @@
 </head>
 
 <body>
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/src/Navbar.php"); ?>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand zoom-in" href="/"><b>MC Servers Beta</b></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active effect-underline" aria-current="page" href="">Home</a>
+                <a class="nav-link effect-underline" href="/server/add">Add Server</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
 <div id="space"></div>
 <div id="space"></div>
 <div class="container">
     <div class="servers" id="servers"></div>
-    <div style="display:none;" id="showServersBtn" class="text-center">
-        <button class="showServers btn btn-primary btn-block" type="button">Show more servers</button>
+    <div style="display:none;" id="showServersBtn" class="text-center d-grid gap-2">
+        <button class="showServers btn btn-primary" type="button">Show more servers</button>
     </div>
     <div id="space"></div>
     <div id="space"></div>

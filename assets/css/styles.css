@@ -51,6 +51,15 @@ p, h1, h2, h3, a {
     transform: scale(1.01);
 }
 
+.form-control {
+    border-color: darkgray !important;
+}
+
+.transparent {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #1c1c1c !important;
@@ -71,6 +80,7 @@ p, h1, h2, h3, a {
     .form-control {
         background-color: #252525 !important;
         color: #c9d1d9 !important;
+        border-color: darkgrey !important;
     }
 
     .text-color {

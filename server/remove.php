@@ -11,41 +11,50 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/minecraftcolors.min.css">
-    <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/src/Navbar.php"); ?>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand zoom-in" href="/"><b>MC Servers Beta</b></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link zoom-in" aria-current="page" href="/">Home</a>
+                <a class="nav-link zoom-in" href="/server/add">Add Server</a>
+            </div>
+        </div>
+    </div>
+</nav>
 
 <div id="space"></div>
 <div id="space"></div>
 
 <div class="container text-center text-lg-start">
     <form id="search-server-form" method="post" action="/src/process/SearchServerProcess.php">
-        <div class="input-group-append">
+        <div class="input-group-text transparent">
             <input type="text" class="form-control" placeholder="Server address" name="serverAddress" maxlength="64"
                    required>
             <span class="input-group-text rounded-0 card-bg-dark">/</span>
             <input type="text" class="form-control" placeholder="Secret key" name="secretKey" maxlength="32" required>
 
-            <div class="input-group-append">
-                <button id="search-button" class="btn btn-primary" type="submit">Search</button>
-            </div>
+            <button id="search-button" class="btn btn-primary" type="submit">Search</button>
         </div>
     </form>
 
     <div id="space"></div>
 
     <form id="delete-server-form" method="post" action="/src/process/DeleteServerProcess.php">
-        <div class="input-group-append">
+        <div class="input-group-text transparent">
             <input type="text" class="form-control" placeholder="Server id" name="serverId" maxlength="64" required>
             <span class="input-group-text rounded-0 card-bg-dark">/</span>
             <input type="text" class="form-control" placeholder="Secret key" name="secretKey" maxlength="32" required>
 
-            <div class="input-group-append">
-                <button id="search-button" class="btn btn-danger" type="submit">Delete</button>
-            </div>
+            <button id="search-button" class="btn btn-danger" type="submit">Delete</button>
         </div>
     </form>
 </div>

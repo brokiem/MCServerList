@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <script src="/assets/js/jquery.min.js"></script>
+    <meta content="https://www-mcserverlist.herokuapp.com/" property="og:url"/>
+    <meta content="MC Server List" property="og:title"/>
+    <meta content="https://www-mcserverlist.herokuapp.com/assets/icon/icon.png" property="og:image"/>
+    <meta content="Minecraft: Bedrock Edition Servers List" property="og:description"/>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0YD0SXLV4"></script>
@@ -28,8 +31,25 @@
 </head>
 
 <body>
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/src/Navbar.php"); ?>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand zoom-in" href="/"><b>MC Servers Beta</b></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link effect-underline" aria-current="page" href="/">Home</a>
+                <a class="nav-link active effect-underline" href="">Add Server</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
 <div id="space"></div>
+<div id="space"></div>
+
 <div class="container">
     <form id="addserver-form" method="post" action="/src/process/AddServerProcess.php">
         <div class="mb-4">
@@ -62,6 +82,7 @@
         <div class="form-group">
             <div class="g-recaptcha" data-theme="dark" data-sitekey="6LcLm30bAAAAAAd6_l0PbFdzzLK6TCjrVjYd0JiL"></div>
         </div>
+        <div id="space"></div>
         <button id="sumbitBtn" type="submit" class="btn btn-primary">Submit</button>
     </form>
     <div id="space"></div>
