@@ -63,8 +63,8 @@ class CurlPost implements RequestMethod {
      * @param string|null $siteVerifyUrl URL for reCAPTCHA siteverify API
      */
     public function __construct(Curl $curl = null, string $siteVerifyUrl = null) {
-        $this->curl = (is_null($curl)) ? new Curl() : $curl;
-        $this->siteVerifyUrl = (is_null($siteVerifyUrl)) ? ReCaptcha::SITE_VERIFY_URL : $siteVerifyUrl;
+        $this->curl = $curl ?? new Curl();
+        $this->siteVerifyUrl = $siteVerifyUrl ?? ReCaptcha::SITE_VERIFY_URL;
     }
 
     /**
@@ -76,17 +76,17 @@ class CurlPost implements RequestMethod {
     public function submit(RequestParameters $params): string {
         $handle = $this->curl->init($this->siteVerifyUrl);
 
-        $options = array(
+        $options = [
             CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => $params->toQueryString(),
-            CURLOPT_HTTPHEADER => array(
+            CURLOPT_HTTPHEADER => [
                 'Content-Type: application/x-www-form-urlencoded'
-            ),
+            ],
             CURLINFO_HEADER_OUT => false,
             CURLOPT_HEADER => false,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_SSL_VERIFYPEER => true
-        );
+        ];
         $this->curl->setoptArray($handle, $options);
 
         $response = $this->curl->exec($handle);

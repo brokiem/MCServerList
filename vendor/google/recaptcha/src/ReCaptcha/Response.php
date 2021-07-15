@@ -105,13 +105,13 @@ class Response {
      * Build the response from the expected JSON returned by the service.
      *
      * @param string $json
-     * @return \ReCaptcha\Response
+     * @return Response
      */
     public static function fromJson(string $json): Response {
         $responseData = json_decode($json, true);
 
         if (!$responseData) {
-            return new Response(false, array(ReCaptcha::E_INVALID_JSON));
+            return new Response(false, [ReCaptcha::E_INVALID_JSON]);
         }
 
         $hostname = $responseData['hostname'] ?? null;
@@ -121,18 +121,18 @@ class Response {
         $action = $responseData['action'] ?? null;
 
         if (isset($responseData['success']) && $responseData['success'] == true) {
-            return new Response(true, array(), $hostname, $challengeTs, $apkPackageName, $score, $action);
+            return new Response(true, [], $hostname, $challengeTs, $apkPackageName, $score, $action);
         }
 
         if (isset($responseData['error-codes']) && is_array($responseData['error-codes'])) {
             return new Response(false, $responseData['error-codes'], $hostname, $challengeTs, $apkPackageName, $score, $action);
         }
 
-        return new Response(false, array(ReCaptcha::E_UNKNOWN_ERROR), $hostname, $challengeTs, $apkPackageName, $score, $action);
+        return new Response(false, [ReCaptcha::E_UNKNOWN_ERROR], $hostname, $challengeTs, $apkPackageName, $score, $action);
     }
 
     public function toArray(): array {
-        return array(
+        return [
             'success' => $this->isSuccess(),
             'hostname' => $this->getHostname(),
             'challenge_ts' => $this->getChallengeTs(),
@@ -140,7 +140,7 @@ class Response {
             'score' => $this->getScore(),
             'action' => $this->getAction(),
             'error-codes' => $this->getErrorCodes(),
-        );
+        ];
     }
 
     /**

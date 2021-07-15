@@ -92,7 +92,7 @@ class RequestParameters {
      * @return array Array formatted parameters.
      */
     public function toArray(): array {
-        $params = array('secret' => $this->secret, 'response' => $this->response);
+        $params = ['secret' => $this->secret, 'response' => $this->response];
 
         if (!is_null($this->remoteIp)) {
             $params['remoteip'] = $this->remoteIp;

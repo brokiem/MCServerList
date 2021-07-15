@@ -54,7 +54,7 @@ class Post implements RequestMethod {
      * @param string|null $siteVerifyUrl URL for reCAPTCHA siteverify API
      */
     public function __construct(string $siteVerifyUrl = null) {
-        $this->siteVerifyUrl = (is_null($siteVerifyUrl)) ? ReCaptcha::SITE_VERIFY_URL : $siteVerifyUrl;
+        $this->siteVerifyUrl = $siteVerifyUrl ?? ReCaptcha::SITE_VERIFY_URL;
     }
 
     /**
@@ -64,15 +64,15 @@ class Post implements RequestMethod {
      * @return string Body of the reCAPTCHA response
      */
     public function submit(RequestParameters $params): string {
-        $options = array(
-            'http' => array(
+        $options = [
+            'http' => [
                 'header' => "Content-type: application/x-www-form-urlencoded\r\n",
                 'method' => 'POST',
                 'content' => $params->toQueryString(),
                 // Force the peer to validate (not needed in 5.6.0+, but still works)
-                'verify_peer' => true,
-            ),
-        );
+                'verify_peer' => true
+            ],
+        ];
         $context = stream_context_create($options);
         $response = file_get_contents($this->siteVerifyUrl, false, $context);
 

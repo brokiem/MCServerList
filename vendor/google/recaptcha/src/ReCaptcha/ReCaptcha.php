@@ -122,6 +122,12 @@ class ReCaptcha {
      */
     private RequestMethod\Post|RequestMethod $requestMethod;
 
+    private int $timeoutSeconds;
+    private float $threshold;
+    private string $hostname;
+    private string $apkPackageName;
+    private string $action;
+
     /**
      * Create a configured instance to use the reCAPTCHA service.
      *
@@ -138,7 +144,7 @@ class ReCaptcha {
         }
 
         $this->secret = $secret;
-        $this->requestMethod = (is_null($requestMethod)) ? new RequestMethod\Post() : $requestMethod;
+        $this->requestMethod = $requestMethod ?? new RequestMethod\Post();
     }
 
     /**
@@ -152,13 +158,13 @@ class ReCaptcha {
     public function verify(string $response, string $remoteIp = null): Response {
         // Discard empty solution submissions
         if (empty($response)) {
-            return new Response(false, array(self::E_MISSING_INPUT_RESPONSE));
+            return new Response(false, [self::E_MISSING_INPUT_RESPONSE]);
         }
 
         $params = new RequestParameters($this->secret, $response, $remoteIp, self::VERSION);
         $rawResponse = $this->requestMethod->submit($params);
         $initialResponse = Response::fromJson($rawResponse);
-        $validationErrors = array();
+        $validationErrors = [];
 
         if (isset($this->hostname) && strcasecmp($this->hostname, $initialResponse->getHostname()) !== 0) {
             $validationErrors[] = self::E_HOSTNAME_MISMATCH;
@@ -217,7 +223,7 @@ class ReCaptcha {
      * @param string $apkPackageName Expected APK package name
      * @return ReCaptcha Current instance for fluent interface
      */
-    public function setExpectedApkPackageName($apkPackageName): ReCaptcha {
+    public function setExpectedApkPackageName(string $apkPackageName): ReCaptcha {
         $this->apkPackageName = $apkPackageName;
         return $this;
     }
@@ -242,7 +248,7 @@ class ReCaptcha {
      * @return ReCaptcha Current instance for fluent interface
      */
     public function setScoreThreshold(float $threshold): static {
-        $this->threshold = (float)$threshold;
+        $this->threshold = $threshold;
         return $this;
     }
 

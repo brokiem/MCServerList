@@ -49,6 +49,10 @@ class SocketPost implements RequestMethod {
      * @var Socket
      */
     private Socket $socket;
+    /**
+     * @var mixed|string
+     */
+    private mixed $siteVerifyUrl;
 
     /**
      * Only needed if you want to override the defaults
@@ -57,8 +61,8 @@ class SocketPost implements RequestMethod {
      * @param null $siteVerifyUrl URL for reCAPTCHA siteverify API
      */
     public function __construct(Socket $socket = null, $siteVerifyUrl = null) {
-        $this->socket = (is_null($socket)) ? new Socket() : $socket;
-        $this->siteVerifyUrl = (is_null($siteVerifyUrl)) ? ReCaptcha::SITE_VERIFY_URL : $siteVerifyUrl;
+        $this->socket = $socket ?? new Socket();
+        $this->siteVerifyUrl = $siteVerifyUrl ?? ReCaptcha::SITE_VERIFY_URL;
     }
 
     /**
