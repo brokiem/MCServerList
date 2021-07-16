@@ -14,6 +14,7 @@
     <meta content="MC Server List" property="og:title"/>
     <meta content="https://www-mcserverlist.herokuapp.com/assets/icon/icon.png" property="og:image"/>
     <meta content="Minecraft: Bedrock Edition Servers List" property="og:description"/>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0YD0SXLV4"></script>
     <script>

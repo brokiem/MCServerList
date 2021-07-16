@@ -16,6 +16,7 @@
     <meta content="MC Server List" property="og:title"/>
     <meta content="https://www-mcserverlist.herokuapp.com/assets/icon/icon.png" property="og:image"/>
     <meta content="Minecraft: Bedrock Edition Servers List" property="og:description"/>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/jquery.min.js"></script>
     <script>
         $.ajax({
