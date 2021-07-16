@@ -55,7 +55,7 @@ foreach ($data as $id => $row) {
     $banner = $row["banner"] ?? "/assets/img/banner.min.png";
     $status = $row["status"] === "offline" ? '<span class="badge bg-danger">Offline</span>' : '<span class="badge bg-success">Online</span>';
     echo '<div class="servers shadow mb-5 card mb-3 card-bg-dark zoom-in text-center">
-        <img src=' . $banner . ' draggable="false" onmousedown="die() false" style="user-drag: none" class="img-fluid rounded">
+        <img src=' . $banner . ' draggable="false" style="user-drag: none" class="img-fluid rounded">
         <div class="card-body card-bg-dark rounded">
 		<h3 class="card-title">' . $row["title"] . '</h3>
 		<h5><span class="badge bg-secondary text-color">' . $row["address"] . ':' . $row["port"] . '</span> ' . $status . ' <span class="badge bg-primary text-color">' . $row["version"] . '</span> <span class="badge bg-info text-color">' . $row["players"] . '/' . $row["maxplayers"] . '</span></h5>

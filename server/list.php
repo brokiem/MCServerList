@@ -17,14 +17,13 @@
     <meta content="https://www-mcserverlist.herokuapp.com/assets/icon/icon.png" property="og:image"/>
     <meta content="Minecraft: Bedrock Edition Servers List" property="og:description"/>
     <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script>
         $.ajax({
             type: 'GET',
             url: '/src/process/ShowServerProcess.php',
             data: {
                 'offset': $('.servers').length,
-                'total': 8
+                'total': 10
             },
             success: function (data) {
                 if (false !== data) {
@@ -45,7 +44,7 @@
                     },
                     success: function (data) {
                         if (false !== data) {
-                            $('#servers').append(data);
+                            $('#servers').append($(data).hide().fadeIn(800));
                             setTimeout(function () {
                                 $(".showServers").prop("disabled", false).html($(".showServers").attr("original-text"));
                             }, 2000);
@@ -80,14 +79,15 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark navbar-bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand zoom-in" href="/"><b>MC Servers Beta</b></a>
+        <a class="navbar-brand zoom-in" href="/"><b><img src="/assets/icon/icon.png" alt="" width="30" height="30"
+                                                         class="d-inline-block align-text-top"> MC Servers Beta</b></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active effect-underline" aria-current="page" href="">Home</a>
+                <a class="nav-link active effect-underline" aria-current="page" href="/server/list">Home</a>
                 <a class="nav-link effect-underline" href="/server/add">Add Server</a>
             </div>
         </div>
