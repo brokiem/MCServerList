@@ -60,9 +60,11 @@ p, h1, h2, h3, a {
     border-color: transparent !important;
 }
 
-.navbar-nav .nav-link {
-    margin-right: 10px;
-    margin-left: 10px;
+@media (pointer: none) {
+    .navbar-nav .nav-link {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
