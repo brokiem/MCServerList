@@ -95,8 +95,8 @@
             });
 
             setTimeout(function () {
-                document.getElementById("showServersBtn").style.display = "block";
-                document.getElementById("showNewServersBtn").style.display = "block";
+                document.getElementById("moreBtn").style.display = "block";
+                document.getElementById("newBtn").style.display = "block";
             }, 2500);
 
             setTimeout(function () {
@@ -171,7 +171,7 @@
     <div id="space"></div>
 
     <div class="new-servers" id="new-servers"></div>
-    <div style="display:none;" class="text-center d-grid gap-2">
+    <div style="display:none;" id="newBtn" class="text-center d-grid gap-2">
         <a href="/server/list?new" class="btn btn-lg btn-primary" type="button">Show more new servers</a>
     </div>
 
@@ -192,7 +192,7 @@
     <div id="space"></div>
 
     <div class="servers" id="servers"></div>
-    <div style="display:none;" class="text-center d-grid gap-2">
+    <div style="display:none;" id="moreBtn" class="text-center d-grid gap-2">
         <a href="/server/list?more" class="btn btn-lg btn-primary" type="button">Show more servers</a>
     </div>
 
