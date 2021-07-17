@@ -1,19 +1,17 @@
 <?php
 
-$input = $_POST;
-
-if (empty($input)) {
+if (empty($_POST)) {
     header("location: /");
     die();
 }
 
-$captchaRes = $input["g-recaptcha-response"] ?? null;
-$serverName = $input["serverName"];
-$serverCaption = $input["serverCaption"];
-$serverDesc = $input["serverDescription"] ?? "";
-$serverBannerURL = $input["serverBanner"] ?? "";
-$address = $input["serverAddress"];
-$port = $input["serverPort"];
+$captchaRes = $_POST["g-recaptcha-response"] ?? null;
+$serverName = $_POST["serverName"];
+$serverCaption = $_POST["serverCaption"];
+$serverDesc = $_POST["serverDescription"] ?? "";
+$serverBannerURL = $_POST["serverBanner"] ?? "";
+$address = $_POST["serverAddress"];
+$port = $_POST["serverPort"];
 
 validate($captchaRes, $serverName, $serverCaption, $serverDesc, $serverBannerURL, $address, $port);
 
