@@ -89,7 +89,7 @@ function start(PDO $connection): void {
     }
 
     echo "Query process done\n";
-    sleep(150); // 150 seconds
+    sleep(120);
     goto query; // loop
 }
 

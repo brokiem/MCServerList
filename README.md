@@ -1,3 +1,3 @@
 # MCServerList
 
-Website: https://www-mcserverlist.herokuapp.com/
+Website: https://www-mcserverlist.herokuapp.com
