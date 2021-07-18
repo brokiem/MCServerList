@@ -36,14 +36,14 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark navbar-bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand zoom-in px-5" href="/"><b><img src="/assets/icon/icon.png" alt="" width="30" height="30"
-                                                              class="d-inline-block align-text-top"> MC Servers Beta</b></a>
+        <a class="navbar-brand zoom-in" href="/"><b><img src="/assets/icon/icon.png" alt="" width="30" height="30"
+                                                         class="d-inline-block align-text-top"> MC Servers Beta</b></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ms-auto flex-nowrap px-5">
+            <div class="navbar-nav ms-auto flex-nowrap">
                 <a class="nav-link effect-underline" aria-current="page" href="/server/list">Home</a>
                 <a class="nav-link active effect-underline" href="/server/add">Add Server</a>
                 <a class="nav-link effect-underline" href="/server/edit">Edit Server</a>
