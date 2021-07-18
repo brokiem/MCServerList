@@ -185,7 +185,7 @@
             <form id='addserver-form' method='post' action='/server/edit.php'>
                 <div class='mb-4'>
                     <label for='serverKey' class='form-label'>Server Key (Secret!)</label>
-                    <input type='text' class='form-control border-0 shadow-sm px-4' name='serverKey' minlength='3' maxlength='100' value='$adminKey' readonly>
+                    <input type='password' class='form-control border-0 shadow-sm px-4' name='serverKey' minlength='3' maxlength='100' value='$adminKey' readonly>
                 </div>
                 <div class='mb-4'>
                     <label for='serverName' class='form-label'>Server name</label>
@@ -239,7 +239,7 @@
 
             <form id="editserver-form" method="post" action="/server/edit.php">
                 <div class="form-group mb-3">
-                    <input name="adminKey" type="text" placeholder="Server key" required=""
+                    <input name="adminKey" type="password" placeholder="Server key" required=""
                            class="form-control border-0 shadow-sm px-4">
                 </div>
                 <div class="d-grid gap-2">
