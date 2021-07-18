@@ -26,13 +26,18 @@
 </head>
 
 <body>
-<div id="space"></div>
+<br>
 <div class="container">
     <div class="shadow p-3 mb-5 card mb-3 card-bg-dark">
         <div class="card-body card-bg-dark rounded">
             <div class="text-center">
                 <h1 class="display-3">Success!</h1>
-                <p class="lead">Your server has been registered.</p><br><br>
+                <p class="lead">Your server has been registered.</p><br>
+                <?php
+                if (isset($_GET["key"])) {
+                    echo '<p class="lead">Save this server key to edit server<br><b>' . $_GET["key"] . '</b></p><br><br>';
+                }
+                ?>
                 <p class="lead"><a class="btn btn-primary" href="/" role="button">Continue to homepage</a></p>
             </div>
         </div>

@@ -128,35 +128,36 @@
             <div class="navbar-nav ms-auto flex-nowrap px-5">
                 <a class="nav-link active effect-underline" aria-current="page" href="/server/list">Home</a>
                 <a class="nav-link effect-underline" href="/server/add">Add Server</a>
+                <a class="nav-link effect-underline" href="/server/edit">Edit Server</a>
             </div>
         </div>
     </div>
 </nav>
 
-<div id="space"></div>
-<div id="space"></div>
+<br>
+<br>
 
 <div class="container">
     <?php
     if (isset($_GET["new"])) {
         echo '<p style="font-size:25px"><svg width="35" height="35" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg><b>  New Servers</b></p>
-        <div id="space"></div>
+        <br>
 
         <div class="new-servers" id="new-servers"></div>
         <div style="display:none;" id="showNewServersBtn" class="text-center d-grid gap-2">
-        <button class="showNewServers btn btn-lg btn-primary" type="button">Show more servers</button>
-        </div><div id="space"></div><div id="space"></div></div></body>';
+        <button class="showNewServers btn btn-primary btn-block text-uppercase mb-2 shadow-sm" type="button">Show more servers</button>
+        </div><br><br></div></body>';
         goto footer;
     }
 
     if (isset($_GET["more"])) {
         echo '<p style="font-size:25px"><svg width="35" height="35" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"/><path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z"/><path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"/></svg><b>  More Servers</b></p>
-        <div id="space"></div>
+        <br>
 
         <div class="servers" id="servers"></div>
         <div style="display:none;" id="showServersBtn" class="text-center d-grid gap-2">
-        <button class="showServers btn btn-lg btn-primary" type="button">Show more servers</button>
-        </div><div id="space"></div><div id="space"></div></div></body>';
+        <button class="showServers btn btn-primary btn-block text-uppercase mb-2 shadow-sm" type="button">Show more servers</button>
+        </div><br><br></div></body>';
         goto footer;
     }
     ?>
@@ -168,16 +169,17 @@
         </svg>
         <b> New Servers</b></p>
 
-    <div id="space"></div>
+    <br>
 
     <div class="new-servers" id="new-servers"></div>
     <div style="display:none;" id="newBtn" class="text-center d-grid gap-2">
-        <a href="/server/list?new" class="btn btn-lg btn-primary" type="button">Show more new servers</a>
+        <a href="/server/list?new" class="btn btn-primary btn-block text-uppercase mb-2 shadow-sm" type="button">Show
+            more new servers</a>
     </div>
 
-    <div id="space"></div>
-    <div id="space"></div>
-    <div id="space"></div>
+    <br>
+    <br>
+    <br>
 
     <p style="font-size:25px">
         <svg width="35" height="35" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
@@ -189,15 +191,16 @@
         </svg>
         <b> More Servers</b></p>
 
-    <div id="space"></div>
+    <br>
 
     <div class="servers" id="servers"></div>
     <div style="display:none;" id="moreBtn" class="text-center d-grid gap-2">
-        <a href="/server/list?more" class="btn btn-lg btn-primary" type="button">Show more servers</a>
+        <a href="/server/list?more" class="btn btn-primary btn-block text-uppercase mb-2 shadow-sm" type="button">Show
+            more servers</a>
     </div>
 
-    <div id="space"></div>
-    <div id="space"></div>
+    <br>
+    <br>
 </div>
 </body>
 <?php footer: ?>

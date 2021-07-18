@@ -20,6 +20,7 @@ $connection->exec("
         caption VARCHAR(128) NOT NULL,
         description VARCHAR(2048),
         banner VARCHAR(1024),
+        adminkey VARCHAR(100) NOT NULL,
         PRIMARY KEY (id)
     )"
 );

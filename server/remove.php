@@ -26,13 +26,14 @@
             <div class="navbar-nav">
                 <a class="nav-link zoom-in" aria-current="page" href="/">Home</a>
                 <a class="nav-link zoom-in" href="/server/add">Add Server</a>
+                <a class="nav-link zoom-in" href="/server/edit">Edit Server</a>
             </div>
         </div>
     </div>
 </nav>
 
-<div id="space"></div>
-<div id="space"></div>
+<br>
+<br>
 
 <div class="container text-center text-lg-start">
     <form id="search-server-form" method="post" action="/src/process/SearchServerProcess.php">
@@ -46,7 +47,7 @@
         </div>
     </form>
 
-    <div id="space"></div>
+    <br>
 
     <form id="delete-server-form" method="post" action="/src/process/DeleteServerProcess.php">
         <div class="input-group-text transparent">

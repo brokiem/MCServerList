@@ -26,6 +26,10 @@
 
         gtag('js', new Date());
         gtag('config', 'G-F0YD0SXLV4');
+
+        function onSubmit(token) {
+            document.getElementById("addserver-form").submit();
+        }
     </script>
 </head>
 
@@ -42,51 +46,61 @@
             <div class="navbar-nav ms-auto flex-nowrap px-5">
                 <a class="nav-link effect-underline" aria-current="page" href="/server/list">Home</a>
                 <a class="nav-link active effect-underline" href="/server/add">Add Server</a>
+                <a class="nav-link effect-underline" href="/server/edit">Edit Server</a>
             </div>
         </div>
     </div>
 </nav>
 
-<div id="space"></div>
-<div id="space"></div>
+<br>
+<br>
 
 <div class="container">
-    <form id="addserver-form" method="post" action="/src/process/AddServerProcess.php">
-        <div class="mb-4">
-            <label for="serverName" class="form-label">Server name *</label>
-            <input type="text" class="form-control" name="serverName" minlength="3" maxlength="32" required>
-        </div>
-        <div class="mb-4">
-            <label for="serverCaption" class="form-label">Server caption *</label>
-            <input type="text" class="form-control" name="serverCaption" minlength="10" maxlength="128" required>
-        </div>
-        <div class="mb-3">
-            <label for="serverDescription" class="form-label">Server description (Optional)</label>
-            <textarea class="form-control" name="serverDescription" rows="3" maxlength="2048"></textarea>
-        </div>
-        <div class="mb-4">
-            <label for="serverBanner" class="form-label">Raw PNG URL server banner (Optional)</label>
-            <textarea type="text" class="form-control" name="serverBanner" maxlength="1024"></textarea>
-        </div>
-        <div id="space"></div>
-        <label for="serverInfo" class="form-label">Server address and port *</label>
-        <div class="input-group mb-4">
-            <input type="text" class="form-control" placeholder="Address" name="serverAddress" minlength="3"
-                   maxlength="64" required>
-            <span class="input-group-text">::</span>
-            <input type="number" class="form-control" placeholder="Port" name="serverPort" value="19132" maxlength="8"
-                   min="1" max="65535" minlength="1" data-bind="value:replyNumber" required>
-        </div>
-        <div id="space"></div>
-        <label for="serverInfo" class="form-label">Verify that you are not a robot *</label>
-        <div class="form-group">
-            <div class="g-recaptcha" data-theme="dark" data-sitekey="6LcLm30bAAAAAAd6_l0PbFdzzLK6TCjrVjYd0JiL"></div>
-        </div>
-        <div id="space"></div>
-        <button id="sumbitBtn" type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    <div id="space"></div>
-    <div id="space"></div>
-    <div id="space"></div>
+    <div class="row">
+        <form id="addserver-form" method="post" action="/src/process/AddServerProcess.php">
+            <div class="mb-4">
+                <label for="serverName" class="form-label">Server name *</label>
+                <input type="text" class="form-control border-0 shadow-sm px-4" name="serverName" minlength="3"
+                       maxlength="32" required>
+            </div>
+            <div class="mb-4">
+                <label for="serverCaption" class="form-label">Server caption *</label>
+                <input type="text" class="form-control border-0 shadow-sm px-4" name="serverCaption" minlength="10"
+                       maxlength="128" required>
+            </div>
+            <div class="mb-3">
+                <label for="serverDescription" class="form-label">Server description (Optional)</label>
+                <textarea class="form-control border-0 shadow-sm px-4" name="serverDescription" rows="3"
+                          maxlength="2048"></textarea>
+            </div>
+            <div class="mb-4">
+                <label for="serverBanner" class="form-label">Raw PNG URL server banner (Optional)</label>
+                <textarea type="text" class="form-control border-0 shadow-sm px-4" name="serverBanner"
+                          maxlength="1024"></textarea>
+
+            </div>
+            <br>
+            <label for="serverInfo" class="form-label">Server address and port *</label>
+            <div class="input-group mb-4">
+                <input type="text" class="form-control border-0 shadow-sm px-4" placeholder="Address"
+                       name="serverAddress" minlength="3"
+                       maxlength="64" required>
+                <span class="input-group-text">::</span>
+                <input type="number" class="form-control border-0 shadow-sm px-4" placeholder="Port" name="serverPort"
+                       value="19132" maxlength="8"
+                       min="1" max="65535" minlength="1" data-bind="value:replyNumber" required>
+            </div>
+            <br>
+            <div class="d-grid gap-2">
+                <button id="sumbitBtn" type="submit"
+                        class="g-recaptcha btn btn-primary btn-block text-uppercase mb-2 shadow-sm"
+                        data-sitekey="6LfMuaAbAAAAADScAtQz8R0GyH_YmtCHBQZvErLT" data-callback='onSubmit'>Submit
+                </button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
 </div>
 </body>

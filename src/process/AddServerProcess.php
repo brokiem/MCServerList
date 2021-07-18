@@ -26,7 +26,7 @@ function validate($captcha, string $name, string $caption, string $desc, string 
     $address = htmlspecialchars($address, ENT_COMPAT, "ISO-8859-1");
     $port = htmlspecialchars($port, ENT_COMPAT, "ISO-8859-1");
 
-    if ($captcha == null || $caption == "") {
+    if ($captcha == null) {
         header("location: /status/captcha");
         die();
     }
@@ -39,7 +39,7 @@ function validate($captcha, string $name, string $caption, string $desc, string 
         die();
     }
 
-    if (strlen($name) >= 32 or strlen($caption) >= 128 or strlen($desc) >= 2048 or strlen($banner) >= 1024 or strlen($address) >= 64 or strlen($port) >= 8) {
+    if (strlen($name) < 5 or strlen($caption) < 5 or strlen($name) >= 32 or strlen($caption) >= 128 or strlen($desc) >= 2048 or strlen($banner) >= 1024 or strlen($address) >= 64 or strlen($port) >= 8) {
         header("location: /status/failed");
         die();
     }
@@ -70,26 +70,33 @@ function validate($captcha, string $name, string $caption, string $desc, string 
     }
 
     include($_SERVER["DOCUMENT_ROOT"] . "/src/query/Query.php");
-    $query = query($address, (int)$port, 3);
+    $query = query($address, (int)$port);
 
     if (!$query) {
         header("location: /status/failed");
         die();
     }
 
-    addServer($name, $caption, $desc, $banner, $address, (int)$port, $query);
-    header("location: /status/success");
+    $key = addServer($name, $caption, $desc, $banner, $address, (int)$port, $query);
+    header("location: /status/success?key=$key");
 }
 
-function addServer(string $name, string $caption, string|null $desc, string|null $banner, string $address, $port, $query) {
+function addServer(string $name, string $caption, string|null $desc, string|null $banner, string $address, $port, $query): string {
     include($_SERVER["DOCUMENT_ROOT"] . "/src/db/Database.php");
 
     $desc = $desc == "" ? null : $banner;
     $banner = $banner == "" ? null : $banner;
 
+    try {
+        $adminKey = random();
+    } catch (Exception $e) {
+        header("location: /status/failed"); // should never happen
+        die();
+    }
+
     $prep = $connection->prepare(
-        "INSERT INTO serverlist(title, address, port, caption, description, banner)
-        VALUES(:title, :address, :port, :caption, :description, :banner)"
+        "INSERT INTO serverlist(title, address, port, caption, description, banner, adminkey)
+        VALUES(:title, :address, :port, :caption, :description, :banner, :adminkey)"
     );
 
     $prep->bindParam(":title", $name, PDO::PARAM_STR);
@@ -98,6 +105,7 @@ function addServer(string $name, string $caption, string|null $desc, string|null
     $prep->bindParam(":caption", $caption, PDO::PARAM_STR);
     $prep->bindParam(":description", $desc, PDO::PARAM_STR | PDO::PARAM_NULL);
     $prep->bindParam(":banner", $banner, PDO::PARAM_STR | PDO::PARAM_NULL);
+    $prep->bindParam(":adminkey", $adminKey, PDO::PARAM_STR);
     $prep->execute();
 
     $list = $connection->query("SELECT * FROM serverlist");
@@ -119,6 +127,8 @@ function addServer(string $name, string $caption, string|null $desc, string|null
             break;
         }
     }
+
+    return $adminKey;
 }
 
 function fsize($path): int|string {
@@ -133,4 +143,14 @@ function fsize($path): int|string {
     }
     fclose($fp);
     return 0;
+}
+
+/**
+ * @throws Exception
+ */
+function random(int $length = 20): string {
+    $bytes1 = random_bytes($length / 2);
+    $bytes2 = random_bytes($length / 2);
+    $rand = ["-", "_", "=", "%", "."];
+    return bin2hex($bytes1) . $rand[array_rand($rand)] . bin2hex($bytes2);
 }
