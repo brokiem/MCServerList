@@ -85,7 +85,7 @@
         $port = htmlspecialchars($port, ENT_COMPAT, "ISO-8859-1");
 
         if (strlen($name) >= 32 or strlen($caption) >= 128 or strlen($desc) >= 2048 or strlen($banner) >= 1024 or strlen($address) >= 64 or strlen($port) >= 8) {
-            echo "<script type='text/javascript'> Swal.fire('Error!', 'Data invalid. Please try again', 'error').then(function() {window.history.go(-1);}) </script>";
+            echo "<script type='text/javascript'> Swal.fire('Failed!', 'Data invalid. Please try again', 'error').then(function() {window.history.go(-1);}) </script>";
             die();
         }
 
@@ -109,7 +109,7 @@
 
         while (($row = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
             if ((int)$row["port"] === (int)$port) {
-                echo "<script type='text/javascript'> Swal.fire('Error!', 'Server with that address and port is exists', 'error').then(function() {window.history.go(-1);}) </script>";
+                echo "<script type='text/javascript'> Swal.fire('Failed!', 'Server with that address and port is exists', 'error').then(function() {window.history.go(-1);}) </script>";
                 die();
             }
         }
@@ -118,7 +118,7 @@
         $query = query($address, (int)$port);
 
         if (!$query) {
-            echo "<script type='text/javascript'> Swal.fire('Error!', 'Server offline or query disabled', 'error').then(function() {window.history.go(-1);}) </script>";
+            echo "<script type='text/javascript'> Swal.fire('Failed!', 'Server offline or query disabled', 'error').then(function() {window.history.go(-1);}) </script>";
             die();
         }
 
@@ -142,6 +142,26 @@
         $prep->bindParam(":banner", $banner, PDO::PARAM_STR | PDO::PARAM_NULL);
         $prep->bindParam(":adminkey", $key, PDO::PARAM_STR);
         $prep->execute();
+
+        $list = $connection->query("SELECT * FROM serverlist");
+        $list->setFetchMode(PDO::FETCH_ASSOC);
+
+        while (($row = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
+            if ($row["address"] == $address and $row["port"] == $port) {
+                $connection->prepare("INSERT INTO querydata (id, status, players, maxplayers, version, hostname) 
+                VALUES (:id, :status, :players, :maxplayers, :version, :hostname)
+                ON DUPLICATE KEY UPDATE id=VALUES(id), status=VALUES(status), players=VALUES(players), version=VALUES(version), hostname=VALUES(hostname)"
+                )->execute([
+                    "id" => $row["id"],
+                    "status" => "online",
+                    "players" => $query["Players"],
+                    "maxplayers" => $query["MaxPlayers"],
+                    "version" => $query["Version"],
+                    "hostname" => $query["HostName"]
+                ]);
+                break;
+            }
+        }
     }
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -164,8 +184,11 @@
         $captchaRes = $_POST["g-recaptcha-response"] ?? null;
         $adminKey = $_POST["adminKey"];
 
-        if ($captchaRes == null || strlen((string)$adminKey) < 10) {
-            header("location: /server/edit");
+        if ($captchaRes == null || strlen((string)$adminKey) < 15) {
+            echo '<div class="row"><div class="col-lg-10 col-xl-7 mx-auto">
+            <h3 class="display-4">Server not found.</h3>
+            <p class="text-muted mb-4">No server found with that key</p>
+            <div class="d-grid gap-2"><button class="btn btn-primary btn-block text-uppercase mb-2 shadow-sm" onclick="window.history.go(-1); return false;">Back</button></div></div></div>';
             die();
         }
 
@@ -239,7 +262,7 @@
 
         if (!$found) {
             echo '<div class="row"><div class="col-lg-10 col-xl-7 mx-auto">
-            <h3 class="display-4">Server not found.</h3>
+            <p class="text-muted mb-4">No server found with that key</p>
             <p class="text-muted mb-4">Server not found with that key</p>
             <div class="d-grid gap-2"><button class="btn btn-primary btn-block text-uppercase mb-2 shadow-sm" onclick="window.history.go(-1); return false;">Back</button></div></div></div>';
         }
