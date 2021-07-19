@@ -116,6 +116,22 @@
 </head>
 
 <body>
+<ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
 <nav class="navbar navbar-expand-lg navbar-dark navbar-bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand zoom-in" href="/"><b><img src="/assets/icon/icon.png" alt="" width="30" height="30"
