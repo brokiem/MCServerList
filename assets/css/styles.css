@@ -62,10 +62,10 @@ p, h1, h2, h3, a, label {
     border-color: transparent !important;
 }
 
-@media (pointer: none) {
+@media (pointer: fine) {
     .navbar-nav .nav-link {
-        margin-right: 10px;
-        margin-left: 10px;
+        margin-right: 8px;
+        margin-left: 8px;
     }
 }
 
