@@ -3,9 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>MC Servers</title>
+    <title>MC Server List</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
     <link href="/assets/icon/favicon.ico" rel="icon" type="image/x-icon">
     <link href="/assets/css/animate.css" rel="stylesheet">
     <link href="/assets/css/styles.css" rel="stylesheet">

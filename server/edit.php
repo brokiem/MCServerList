@@ -3,9 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>MC Servers</title>
+    <title>MC Server List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400">
     <link rel="icon" href="/assets/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
@@ -14,7 +13,7 @@
     <meta content="https://www-mcserverlist.herokuapp.com/" property="og:url"/>
     <meta content="MC Server List" property="og:title"/>
     <meta content="https://www-mcserverlist.herokuapp.com/assets/icon/icon.png" property="og:image"/>
-    <meta content="Minecraft: Bedrock Edition Servers List" property="og:description"/>
+    <meta content="Minecraft: Bedrock Edition Server List" property="og:description"/>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0YD0SXLV4"></script>
@@ -54,8 +53,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark navbar-bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand zoom-in" href="/"><b><img src="/assets/icon/icon.png" alt="" width="30" height="30"
-                                                         class="d-inline-block align-text-top"> MC Servers Beta</b></a>
+        <a class="navbar-brand zoom-in" href="/"><img src="/assets/icon/icon.png" alt="" width="30" height="30"
+                                                      class="d-inline-block align-text-top"> MC Server List</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
