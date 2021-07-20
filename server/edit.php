@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@3/dark.css">
     <meta content="https://www-mcserverlist.herokuapp.com/" property="og:url"/>
     <meta content="MC Server List" property="og:title"/>
     <meta content="https://www-mcserverlist.herokuapp.com/assets/icon/icon.png" property="og:image"/>
@@ -17,7 +16,6 @@
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0YD0SXLV4"></script>
-    <script src="/assets/js/sweetalert2.min.js"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -85,20 +83,29 @@
         $port = htmlspecialchars($port, ENT_COMPAT, "ISO-8859-1");
 
         if (strlen($name) >= 32 or strlen($caption) >= 128 or strlen($desc) >= 2048 or strlen($banner) >= 1024 or strlen($address) >= 64 or strlen($port) >= 8) {
-            echo "<script type='text/javascript'> Swal.fire('Failed!', 'Data invalid. Please try again', 'error').then(function() {window.history.go(-1);}) </script>";
+            echo '<div class="row"><div class="col-lg-10 col-xl-7 mx-auto">
+            <h3 class="display-4">Failed</h3>
+            <p class="text-muted mb-4">Data invalid. Please try again</p>
+            <div class="d-grid gap-2"><button class="btn btn-primary btn-block text-uppercase mb-2 shadow-sm" onclick="window.history.go(-1); return false;">Back</button></div></div></div>';
             die();
         }
 
         if ($banner != "" or $banner != null) {
             if (!preg_match('/https?:\/\/[^?]*\.png(?![\w.\-_])/', $banner)) {
-                header("location: /status/banner");
+                echo '<div class="row"><div class="col-lg-10 col-xl-7 mx-auto">
+                <h3 class="display-4">Failed</h3>
+                <p class="text-muted mb-4">Banner URL is not a raw png. Raw png urls like https://image<b>.png</b> or your bannerare not supported. Supported banners are 1170 x 180 with maximum 1mb file size</p>
+                <div class="d-grid gap-2"><button class="btn btn-primary btn-block text-uppercase mb-2 shadow-sm" onclick="window.history.go(-1); return false;">Back</button></div></div></div>';
                 die();
             }
 
             [$width, $height] = getimagesize($banner);
 
             if ($width !== 1170 and $height !== 180 or fsize($banner) > 1024) {
-                header("location: /status/banner");
+                echo '<div class="row"><div class="col-lg-10 col-xl-7 mx-auto">
+                <h3 class="display-4">Failed</h3>
+                <p class="text-muted mb-4">Banner URL is not a raw png. Raw png urls like https://image<b>.png</b> or your bannerare not supported. Supported banners are 1170 x 180 with maximum 1mb file size</p>
+                <div class="d-grid gap-2"><button class="btn btn-primary btn-block text-uppercase mb-2 shadow-sm" onclick="window.history.go(-1); return false;">Back</button></div></div></div>';
                 die();
             }
         }
@@ -109,7 +116,10 @@
 
         while (($row = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
             if ((int)$row["port"] === (int)$port and $row["adminkey"] !== (string)$key) {
-                echo "<script type='text/javascript'> Swal.fire('Failed!', 'Server with that address and port is exists', 'error').then(function() {window.history.go(-1);}) </script>";
+                echo '<div class="row"><div class="col-lg-10 col-xl-7 mx-auto">
+            <h3 class="display-4">Failed</h3>
+            <p class="text-muted mb-4">Server with that address and port is exists</p>
+            <div class="d-grid gap-2"><button class="btn btn-primary btn-block text-uppercase mb-2 shadow-sm" onclick="window.history.go(-1); return false;">Back</button></div></div></div>';
                 die();
             }
         }
@@ -118,12 +128,18 @@
         $query = query($address, (int)$port);
 
         if (!$query) {
-            echo "<script type='text/javascript'> Swal.fire('Failed!', 'Server offline or query disabled', 'error').then(function() {window.history.go(-1);}) </script>";
+            echo '<div class="row"><div class="col-lg-10 col-xl-7 mx-auto">
+            <h3 class="display-4">Failed</h3>
+            <p class="text-muted mb-4">Server offline or query disabled</p>
+            <div class="d-grid gap-2"><button class="btn btn-primary btn-block text-uppercase mb-2 shadow-sm" onclick="window.history.go(-1); return false;">Back</button></div></div></div>';
             die();
         }
 
         editServer($key, $name, $caption, $desc, $banner, $address, (int)$port, $query);
-        echo "<script type='text/javascript'> Swal.fire('Success!', '', 'success').then(function() {window.location.href = '/server/list'}) </script>";
+        echo '<div class="row"><div class="col-lg-10 col-xl-7 mx-auto">
+            <h3 class="display-4">Success</h3>
+            <p class="text-muted mb-4">Server edited successfully</p>
+            <div class="d-grid gap-2"><button class="btn btn-primary btn-block text-uppercase mb-2 shadow-sm" onclick="window.location.href = "/server/list"">Ok</button></div></div></div>';
     }
 
     function editServer(string $key, string $name, string $caption, string|null $desc, string|null $banner, string $address, $port, $query): void {
