@@ -139,7 +139,7 @@
         echo '<div class="row"><div class="col-lg-10 col-xl-7 mx-auto">
             <h3 class="display-4">Success</h3>
             <p class="text-muted mb-4">Server edited successfully</p>
-            <div class="d-grid gap-2"><button class="btn btn-primary btn-block text-uppercase mb-2 shadow-sm" onclick="window.location.href = \"/server/list\"">Ok</button></div></div></div>';
+            <div class="d-grid gap-2"><button class="btn btn-primary btn-block text-uppercase mb-2 shadow-sm" href="/server/list">Ok</button></div></div></div>';
         die();
     }
 
