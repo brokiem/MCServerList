@@ -25,7 +25,7 @@
             data: {
                 'type': 1,
                 'offset': $('.servers').length,
-                'total': 4
+                'total': 6
             },
             success: function (data) {
                 if (false !== data) {
@@ -40,7 +40,7 @@
             data: {
                 'type': 0,
                 'offset': $('.new-servers').length,
-                'total': 4
+                'total': 6
             },
             success: function (data) {
                 if (false !== data) {
@@ -58,7 +58,7 @@
                     data: {
                         'type': 1,
                         'offset': $('.servers').length,
-                        'total': 5
+                        'total': 8
                     },
                     success: function (data) {
                         if (false !== data) {
@@ -79,7 +79,7 @@
                     data: {
                         'type': 0,
                         'offset': $('.new-servers').length,
-                        'total': 5
+                        'total': 8
                     },
                     success: function (data) {
                         if (false !== data) {
