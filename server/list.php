@@ -18,8 +18,6 @@
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/jquery.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0YD0SXLV4"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-            data-ad-client="ca-pub-1738139518784794"></script>
     <script>
         $.ajax({
             type: 'GET',
