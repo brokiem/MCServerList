@@ -21,11 +21,8 @@
 <body>
 <div class="container">
     <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
-        <div>
-            <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status"></div>
-            <strong class="display-3" style="font-family: Quicksand, sans-serif"> Loading..</strong>
-        </div>
-        <p class="lead">Please wait..</p>
+        <h1 class="display-3">Loading...</h1>
+        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status"></div>
     </div>
 </div>
 </body>
