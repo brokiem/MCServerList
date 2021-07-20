@@ -148,7 +148,7 @@ function addServer(string $name, string $caption, string|null $desc, string|null
     try {
         $adminKey = random();
     } catch (Exception $e) {
-        header("location: /status/failed"); // should never happen
+        echo "<script type='text/javascript'> Swal.fire('Failed!', 'Something wrong happened', 'error').then(function() {window.history.go(-1);}) </script>"; // should never happen
         die();
     }
 

@@ -7,15 +7,15 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <meta content="https://www-mcserverlist.herokuapp.com/" property="og:url"/>
+    <meta content="MC Server List" property="og:title"/>
+    <meta content="https://www-mcserverlist.herokuapp.com/assets/icon/icon.png" property="og:image"/>
+    <meta content="Minecraft: Bedrock Edition Server List" property="og:description"/>
     <script>
         setTimeout(function () {
             window.location.href = "/server/list";
         }, 700);
     </script>
-    <meta content="https://www-mcserverlist.herokuapp.com/" property="og:url"/>
-    <meta content="MC Server List" property="og:title"/>
-    <meta content="https://www-mcserverlist.herokuapp.com/assets/icon/icon.png" property="og:image"/>
-    <meta content="Minecraft: Bedrock Edition Server List" property="og:description"/>
 </head>
 
 <body>
@@ -29,5 +29,4 @@
     </div>
 </div>
 </body>
-
 </html>

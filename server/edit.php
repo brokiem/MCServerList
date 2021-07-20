@@ -108,7 +108,7 @@
         $list->setFetchMode(PDO::FETCH_ASSOC);
 
         while (($row = $list->fetch(PDO::FETCH_ASSOC)) !== false) {
-            if ((int)$row["port"] === (int)$port) {
+            if ((int)$row["port"] === (int)$port and $row["adminkey"] !== (string)$key) {
                 echo "<script type='text/javascript'> Swal.fire('Failed!', 'Server with that address and port is exists', 'error').then(function() {window.history.go(-1);}) </script>";
                 die();
             }
