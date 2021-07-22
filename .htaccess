@@ -19,6 +19,11 @@ ErrorDocument 500 /status/error/500
     Order Allow,Deny
     Deny from all
 </Files>
+<Files "Database.php">
+    Order Allow,Deny
+    Deny from all
+    Allow from 127.0.0.1
+</Files>
 </IfModule>
 
 <IfModule mod_deflate.c>
