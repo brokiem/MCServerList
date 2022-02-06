@@ -19,7 +19,6 @@
     <script src="/assets/js/jquery.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0YD0SXLV4"></script>
     <script>
-        window.location.href = "https://mcserverlist.masuk.id/server/list";
         $.ajax({
             type: 'GET',
             url: '/src/process/ShowServerProcess.php',
