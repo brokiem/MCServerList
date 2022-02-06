@@ -13,7 +13,7 @@
     <meta content="Minecraft: Bedrock Edition Server List" property="og:description"/>
     <script>
         setTimeout(function () {
-            window.location.href = "https://mcserverlist.masuk.id/server/list";
+            window.location.href = "www-mcserverlist.herokuapp.com/server/list";
         }, 600);
     </script>
 </head>
